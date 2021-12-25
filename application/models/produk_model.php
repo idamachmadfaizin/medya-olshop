@@ -12,6 +12,7 @@ class Produk_model extends CI_Model
     $this->db->select('p.id_produk, p.nama_produk, p.harga_produk, p.deskripsi_produk, p.url_produk,p.produk_created_at, p.produk_updated_at, i.url_image');
     $this->db->from('produk p');
     $this->db->join('image i', 'i.id_produk = p.id_produk');
+    $this->db->where('status_produk', 0);
     if (isset($kategori)) {
       if (!$kategori == 0) {
         $this->db->where('p.id_kategori', $kategori);

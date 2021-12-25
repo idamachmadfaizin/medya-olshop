@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2019 pada 18.34
+-- Waktu pembuatan: 06 Agu 2019 pada 08.03
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -36,6 +36,13 @@ CREATE TABLE `admin` (
   `nomor_telp_admin` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `email_admin`, `password_admin`, `nama_admin`, `nomor_telp_admin`) VALUES
+(1, 'admin@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'admin1', '08212345678');
+
 -- --------------------------------------------------------
 
 --
@@ -53,7 +60,7 @@ CREATE TABLE `agama` (
 
 INSERT INTO `agama` (`id_agama`, `nama_agama`) VALUES
 (1, 'Islam'),
-(2, 'Kristem'),
+(2, 'Kristen'),
 (3, 'Katholik'),
 (4, 'HIndu'),
 (5, 'Budha'),
@@ -72,6 +79,13 @@ CREATE TABLE `cart` (
   `id_produk` int(11) NOT NULL,
   `qty_cart` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `cart`
+--
+
+INSERT INTO `cart` (`id_cart`, `id_customer`, `id_produk`, `qty_cart`) VALUES
+(1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -104,11 +118,21 @@ CREATE TABLE `customer` (
   `jenis_kelamin` enum('Pria','Wanita') DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
   `id_pendidikan` int(11) DEFAULT NULL,
-  `id_agama` int(11) DEFAULT NULL,
+  `pendapatan` enum('1','2','3','4','5') DEFAULT NULL,
   `url_img_customer` varchar(255) NOT NULL DEFAULT 'default.jpg',
+  `email_verification_code` varchar(45) NOT NULL,
+  `active_status` enum('Y','N') NOT NULL DEFAULT 'N',
   `customer_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `customer`
+--
+
+INSERT INTO `customer` (`id_customer`, `email_customer`, `password_customer`, `nama_customer`, `nomor_telp`, `provinsi`, `kabupaten`, `kota`, `address`, `jenis_kelamin`, `tanggal_lahir`, `id_pendidikan`, `pendapatan`, `url_img_customer`, `email_verification_code`, `active_status`, `customer_created_at`, `customer_updated_at`) VALUES
+(1, 'idamachmadfaizin@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Idam Ahmad Faizin', '6285748177870', '35', '3525', '3525080', 'Duduk Sampeyan Rt 1', 'Pria', '1997-12-08', 5, '3', 'default.jpg', 'D4yT5GHOdwUfN70RxL1rKBIPE6bCnJqzsaWAiVSl2pjtY', 'Y', '2019-07-16 15:59:08', '2019-07-16 20:23:16'),
+(2, 'heruaffandi06@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', NULL, '123456789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default.jpg', 'zZdcw71UGTmuYjaS3viVHoBh26DykLFbxqPgM8OeERQK5', 'Y', '2019-07-17 05:22:40', '2019-07-17 05:23:29');
 
 -- --------------------------------------------------------
 
@@ -154,25 +178,38 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`id_image`, `id_produk`, `url_image`) VALUES
-(1, 1, 'baby octopus 1.jpg'),
-(2, 1, 'baby octopus 2.jpg'),
-(3, 1, 'baby octopus 3.jpg'),
-(4, 2, 'BATARI-Bandeng-Tanpa-Duri-RUM-1.jpg'),
-(5, 2, 'BATARI-Bandeng-Tanpa-Duri-RUM-2.jpg'),
-(6, 2, 'BATARI-Bandeng-Tanpa-Duri-RUM-3.jpg'),
-(7, 3, 'Cumi Flower RUM 1.jpg'),
-(8, 3, 'Cumi Flower RUM 2.jpg'),
-(9, 3, 'Cumi Flower RUM 3.jpg'),
 (10, 4, 'Cumi Kupas RUM.jpg'),
 (11, 4, 'Cumi Kupas RUM.jpg'),
 (12, 4, 'Cumi Kupas RUM.jpg'),
-(13, 5, 'Cumi Ring RUM.jpg'),
-(14, 5, 'Cumi Ring RUM.jpg'),
 (15, 8, 'Salmon-Head-Less-1.jpg'),
 (16, 8, 'Salmon-Head-Less-2.jpg'),
 (17, 8, 'Salmon-Head-Less-3.jpg'),
 (18, 9, 'Kepala-Salmon-Rum-1.jpg'),
-(19, 10, 'Kepiting-Soka-Super-RUM-1.jpg');
+(19, 10, 'Kepiting-Soka-Super-RUM-1.jpg'),
+(32, 40, 'Gindara_Steak_RUM_0.jpg'),
+(33, 40, 'Gindara_Steak_RUM_1.jpg'),
+(34, 40, 'Gindara_Steak_RUM_2.jpg'),
+(35, 41, 'Patin_Butterfly_0.jpeg'),
+(36, 41, 'Patin_Butterfly_1.jpeg'),
+(37, 41, 'Patin_Butterfly_2.jpeg'),
+(38, 42, 'Tuna_Saku_0.png'),
+(39, 43, 'Udang_Raw_PDTO_RUM_0.jpg'),
+(40, 43, 'Udang_Raw_PDTO_RUM_1.jpg'),
+(43, 1, 'Baby_Octopus_RUM_0.jpg'),
+(44, 1, 'Baby_Octopus_RUM_1.jpg'),
+(45, 1, 'Baby_Octopus_RUM_2.jpg'),
+(46, 2, 'UDANG_COOKED_PND_0.jpg'),
+(47, 2, 'UDANG_COOKED_PND_1.jpg'),
+(48, 2, 'UDANG_COOKED_PND_2.jpg'),
+(49, 3, 'KEPALA_IKAN_ODUL_0.jpg'),
+(50, 3, 'KEPALA_IKAN_ODUL_1.jpg'),
+(61, 5, 'CUMI_KUPU-KUPU_RUM_0.jpg'),
+(70, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_0.jpeg'),
+(71, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_1.jpeg'),
+(72, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_2.jpeg'),
+(73, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_3.jpeg'),
+(74, 48, 'Salmon_fillet_0.png'),
+(75, 48, 'Salmon_fillet_2.png');
 
 -- --------------------------------------------------------
 
@@ -726,7 +763,9 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `url_image_kategori`, `status_kategori`) VALUES
 (1, 'Seafood', 'kategori seafood.jpg', 0),
 (2, 'Umpan Tuna', 'kategori umpan tuna.jpg', 0),
-(3, 'Dry Seafood', 'dry-seafood.jpg', 0);
+(3, 'Dry Seafood', 'dry-seafood.jpg', 0),
+(4, 'Pakan Ikan', 'Fish-Feed.jpg', 1),
+(5, 'Rum', 'Rum.png', 0);
 
 -- --------------------------------------------------------
 
@@ -7997,10 +8036,10 @@ CREATE TABLE `k_means` (
 --
 
 INSERT INTO `k_means` (`id_kmeans`, `nama_variable`) VALUES
-(1, 'lokasi'),
-(2, 'usia'),
-(3, 'Agama'),
-(4, 'Pendidikan terakhir');
+(1, 'Usia'),
+(2, 'Jenis Kelamin'),
+(3, 'Pendapatan'),
+(4, 'Pendidikan');
 
 -- --------------------------------------------------------
 
@@ -8066,14 +8105,20 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `url_produk`, `status_produk`, `produk_created_at`, `produk_updated_at`) VALUES
-(1, 1, 'FILLET KRESI REDMULLED', 60000, 'ini deskripsi produk fillet kresi redmulled', 'fillet-kresi-redmulled', 0, '2019-02-06 11:14:55', '2019-02-06 11:16:35'),
-(2, 1, 'UDANG COOKED PND', 60000, 'ini deskripsi UDANG COOKED PND', 'udang-cooked pnd', 0, '2019-02-06 11:16:22', '2019-02-06 11:16:25'),
-(3, 1, 'KEPALA IKAN ODUL', 7000, 'ini deskripsi KEPALA IKAN ODUL', 'kepala-ikan-odol', 0, '2019-02-06 11:17:04', '2019-02-06 11:17:06'),
+(1, 1, 'Baby Octopus RUM', 70000, 'Baby Octopus RUM adalah salah satu produk Seafood Beku dari RUM Seafood, dibuat dari bahan baku pilihan, diproses secara higienis, dan dikemas dengan baik. Sehingga mutu Baby Octopus RUM sangat terjaga.\r\n\r\nBaby Octopus RUM cocok untuk kebutuhan bisnis maupun pribadi. Kami juga melayani penjualan secara eceran maupun grosir, tentunya dengan harga yang menarik.', 'Baby-Octopus-RUM', 1, '2019-02-06 11:14:55', '2019-07-03 15:43:45'),
+(2, 1, 'UDANG COOKED PND', 60000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged', 'UDANG-COOKED-PND', 0, '2019-02-06 11:16:22', '2019-07-02 07:06:43'),
+(3, 1, 'KEPALA IKAN ODUL', 7000, 'Kepala Ikan Odul adalah produk seafood beku Wijaya Seafood dari Jenis ikan laut dengan taste mirip kakap merah. kepala ikan odul ini cocok untuk gulai kepala ikan odul sebagai ganti kepala kakap merah. wijaya seafood menyediakan Kepala ikan odul segala size kondiai IQF.', 'KEPALA-IKAN-ODUL', 0, '2019-02-06 11:17:04', '2019-07-02 08:30:30'),
 (4, 2, 'BANDENG UTUH', 25000, 'ini deskripsi BANDENG UTUH', 'bandeng-utuh', 0, '2019-02-06 11:18:26', '2019-02-06 11:18:29'),
-(5, 3, 'CUMI KUPU-KUPU RUM', 89500, 'ini deskripsi CUMI KUPU-KUPU RUM', 'CUMI-KUPU-KUPU-RUM', 0, '2019-02-06 11:19:05', '2019-05-16 09:52:24'),
+(5, 3, 'CUMI KUPU-KUPU RUM', 89500, 'ini deskripsi CUMI KUPU-KUPU RUM', 'CUMI-KUPU-KUPU-RUM', 0, '2019-02-06 11:19:05', '2019-07-02 08:58:16'),
 (8, 1, 'Salmon Head Less', 215000, 'Ini deskripsi Salmon Head Less', 'Salmon-Head-Less', 0, '2019-04-24 15:46:30', '2019-04-24 15:46:30'),
 (9, 1, 'Kepala Salmon Rum', 200000, 'Ini Deskripsi Kepala Salmon Rum', 'kepala-salmon-rum', 0, '2019-04-24 15:52:49', '2019-04-24 15:52:49'),
-(10, 1, 'Kepiting Soka Super RUM', 130000, 'Ini Deskripsi Kepiting Soka Super RUM', 'kepiting-soka-super-rum', 0, '2019-04-24 15:52:49', '2019-04-24 15:52:49');
+(10, 1, 'Kepiting Soka Super RUM', 130000, 'Ini Deskripsi Kepiting Soka Super RUM', 'kepiting-soka-super-rum', 0, '2019-04-24 15:52:49', '2019-04-24 15:52:49'),
+(40, 1, 'Gindara Steak RUM', 106000, 'gindara bro', 'Gindara-Steak-RUM', 0, '2019-06-29 23:27:07', '2019-06-30 09:31:17'),
+(41, 1, 'Patin Butterfly', 25000, 'Patin Butterfly merupakan salah satu produk unggulan RUM Seafood. Sangat menarik untuk dicoba', 'Patin-Butterfly', 0, '2019-06-30 10:00:38', '2019-06-30 10:00:38'),
+(42, 1, 'Tuna Saku', 85000, 'Tuna Saku adalah jenis daging yang dipotong dengan model potongan produk tuna yang biasa di gunakan produsen untuk memenuhi permintaan pasar baik export maupun domestik. Kami juga menyediakan berbagai macam Ikan Beku dan Fillet lainnya.', 'Tuna-Saku', 0, '2019-06-30 10:09:48', '2019-06-30 10:09:48'),
+(43, 1, 'Udang Raw PDTO RUM', 60000, 'Udang Raw PDTO RUM adalah salah satu produk Seafood Beku dari RUM Seafood, dibuat dari bahan baku pilihan, diproses secara higienis, dan dikemas dengan baik. Sehingga mutu Udang Raw PDTO RUM sangat terjaga.\r\n\r\nUdang Raw PDTO RUM dikemas dalam bentuk 500gr, 1kilo, maupun curah. Cocok untuk kebutuhan bisnis maupun pribadi. Kami juga melayani penjualan secara eceran maupun grosir, tentunya dengan harga yang menarik.', 'Udang-Raw-PDTO-RUM', 0, '2019-06-30 10:10:42', '2019-06-30 10:10:42'),
+(47, 1, 'Steak Patin - Ikan Beku dan Fillet', 30000, 'Steak patin adalah salah satu produk ikan beku dan fillet unggulan RUM Seafood. Diproses dengan higienis sehingga mutu terjamin.', 'Steak-Patin---Ikan-Beku-dan-Fillet', 0, '2019-07-02 09:09:55', '2019-07-02 09:09:55'),
+(48, 5, 'Salmon fillet', 100000, 'Ini deskripsi salmon fillet', 'Salmon-fillet', 0, '2019-07-11 01:22:53', '2019-07-11 01:22:53');
 
 -- --------------------------------------------------------
 
@@ -8083,48 +8128,73 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga_produk`,
 
 CREATE TABLE `provinsi` (
   `id_provinsi` char(2) NOT NULL,
-  `nama_provinsi` varchar(255) NOT NULL
+  `nama_provinsi` varchar(255) NOT NULL,
+  `id_pulau` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `provinsi`
 --
 
-INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
-('11', 'ACEH'),
-('12', 'SUMATERA UTARA'),
-('13', 'SUMATERA BARAT'),
-('14', 'RIAU'),
-('15', 'JAMBI'),
-('16', 'SUMATERA SELATAN'),
-('17', 'BENGKULU'),
-('18', 'LAMPUNG'),
-('19', 'KEPULAUAN BANGKA BELITUNG'),
-('21', 'KEPULAUAN RIAU'),
-('31', 'DKI JAKARTA'),
-('32', 'JAWA BARAT'),
-('33', 'JAWA TENGAH'),
-('34', 'DI YOGYAKARTA'),
-('35', 'JAWA TIMUR'),
-('36', 'BANTEN'),
-('51', 'BALI'),
-('52', 'NUSA TENGGARA BARAT'),
-('53', 'NUSA TENGGARA TIMUR'),
-('61', 'KALIMANTAN BARAT'),
-('62', 'KALIMANTAN TENGAH'),
-('63', 'KALIMANTAN SELATAN'),
-('64', 'KALIMANTAN TIMUR'),
-('65', 'KALIMANTAN UTARA'),
-('71', 'SULAWESI UTARA'),
-('72', 'SULAWESI TENGAH'),
-('73', 'SULAWESI SELATAN'),
-('74', 'SULAWESI TENGGARA'),
-('75', 'GORONTALO'),
-('76', 'SULAWESI BARAT'),
-('81', 'MALUKU'),
-('82', 'MALUKU UTARA'),
-('91', 'PAPUA BARAT'),
-('94', 'PAPUA');
+INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`, `id_pulau`) VALUES
+('11', 'ACEH', 6),
+('12', 'SUMATERA UTARA', 6),
+('13', 'SUMATERA BARAT', 6),
+('14', 'RIAU', 6),
+('15', 'JAMBI', 6),
+('16', 'SUMATERA SELATAN', 6),
+('17', 'BENGKULU', 6),
+('18', 'LAMPUNG', 6),
+('19', 'KEPULAUAN BANGKA BELITUNG', 6),
+('21', 'KEPULAUAN RIAU', 6),
+('31', 'DKI JAKARTA', 1),
+('32', 'JAWA BARAT', 1),
+('33', 'JAWA TENGAH', 1),
+('34', 'DI YOGYAKARTA', 1),
+('35', 'JAWA TIMUR', 1),
+('36', 'BANTEN', 1),
+('51', 'BALI', 3),
+('52', 'NUSA TENGGARA BARAT', 3),
+('53', 'NUSA TENGGARA TIMUR', 3),
+('61', 'KALIMANTAN BARAT', 2),
+('62', 'KALIMANTAN TENGAH', 2),
+('63', 'KALIMANTAN SELATAN', 2),
+('64', 'KALIMANTAN TIMUR', 2),
+('65', 'KALIMANTAN UTARA', 2),
+('71', 'SULAWESI UTARA', 5),
+('72', 'SULAWESI TENGAH', 5),
+('73', 'SULAWESI SELATAN', 5),
+('74', 'SULAWESI TENGGARA', 5),
+('75', 'GORONTALO', 5),
+('76', 'SULAWESI BARAT', 5),
+('81', 'MALUKU', 4),
+('82', 'MALUKU UTARA', 4),
+('91', 'PAPUA BARAT', 7),
+('94', 'PAPUA', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pulau`
+--
+
+CREATE TABLE `pulau` (
+  `id_pulau` int(11) NOT NULL,
+  `nama_pulau` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pulau`
+--
+
+INSERT INTO `pulau` (`id_pulau`, `nama_pulau`) VALUES
+(1, 'Jawa'),
+(2, 'Kalimantan'),
+(3, 'Kepulauan Nusa Tenggara'),
+(4, 'Kepulauan Maluku'),
+(5, 'Sulawesi'),
+(6, 'Sumatra'),
+(7, 'Papua');
 
 --
 -- Indexes for dumped tables
@@ -8167,8 +8237,7 @@ ALTER TABLE `customer`
   ADD KEY `provinsi` (`provinsi`),
   ADD KEY `kabupaten` (`kabupaten`),
   ADD KEY `kota` (`kota`),
-  ADD KEY `id_pendidikan` (`id_pendidikan`),
-  ADD KEY `id_agama` (`id_agama`);
+  ADD KEY `id_pendidikan` (`id_pendidikan`);
 
 --
 -- Indeks untuk tabel `detail_kmeans`
@@ -8250,7 +8319,14 @@ ALTER TABLE `produk`
 -- Indeks untuk tabel `provinsi`
 --
 ALTER TABLE `provinsi`
-  ADD PRIMARY KEY (`id_provinsi`);
+  ADD PRIMARY KEY (`id_provinsi`),
+  ADD KEY `id_pulau` (`id_pulau`);
+
+--
+-- Indeks untuk tabel `pulau`
+--
+ALTER TABLE `pulau`
+  ADD PRIMARY KEY (`id_pulau`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -8260,7 +8336,7 @@ ALTER TABLE `provinsi`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `agama`
@@ -8272,7 +8348,7 @@ ALTER TABLE `agama`
 -- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `cluster`
@@ -8284,7 +8360,7 @@ ALTER TABLE `cluster`
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_kmeans`
@@ -8302,13 +8378,13 @@ ALTER TABLE `detail_order`
 -- AUTO_INCREMENT untuk tabel `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `konfirmasi_pembayaran`
@@ -8338,7 +8414,13 @@ ALTER TABLE `pendidikan`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT untuk tabel `pulau`
+--
+ALTER TABLE `pulau`
+  MODIFY `id_pulau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -8364,8 +8446,7 @@ ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`provinsi`) REFERENCES `provinsi` (`id_provinsi`),
   ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`kabupaten`) REFERENCES `kabupaten` (`id_kabupaten`),
   ADD CONSTRAINT `customer_ibfk_3` FOREIGN KEY (`kota`) REFERENCES `kota` (`id_kota`),
-  ADD CONSTRAINT `customer_ibfk_4` FOREIGN KEY (`id_pendidikan`) REFERENCES `pendidikan` (`id_pendidikan`),
-  ADD CONSTRAINT `customer_ibfk_5` FOREIGN KEY (`id_agama`) REFERENCES `agama` (`id_agama`);
+  ADD CONSTRAINT `customer_ibfk_4` FOREIGN KEY (`id_pendidikan`) REFERENCES `pendidikan` (`id_pendidikan`);
 
 --
 -- Ketidakleluasaan untuk tabel `detail_kmeans`
@@ -8410,6 +8491,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
+
+--
+-- Ketidakleluasaan untuk tabel `provinsi`
+--
+ALTER TABLE `provinsi`
+  ADD CONSTRAINT `provinsi_ibfk_1` FOREIGN KEY (`id_pulau`) REFERENCES `pulau` (`id_pulau`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
