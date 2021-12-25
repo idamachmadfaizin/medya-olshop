@@ -49,62 +49,10 @@ class rum_model extends CI_Model
         return $this->db->get();
     }
 
-
-    // insert to cluster
-    public function insMultiRows($table_name, $data)
-    {
-        $this->db->truncate($table_name); //to delete and reset autoincrement
-        $this->db->insert_batch($table_name, $data);
-        return $this->db->affected_rows();
-    }
-
     // Select join distinct id_produk
     public function getRelatedProduk($id_produk)
     {
-        // get group_cluster
-        $this->db->select('group_cluster');
-        $this->db->from('cluster c');
-        $this->db->join('detail_kmeans dk', 'c.id_detail_kmeans = dk.id_detail_kmeans');
-        $this->db->join('produk p', 'p.id_produk = dk.id_produk');
-        $this->db->where('p.id_produk', $id_produk);
-        $gclusters = $this->db->get()->result_array();
-        // $gclusters = $gclusters->row_array();
-
-        if ($gclusters) {
-            $this->db->reset_query();
-
-            // get semua id_produk dalam cluster
-            $this->db->select('p.id_produk');
-            $this->db->from('cluster c');
-            $this->db->join('detail_kmeans dk', 'c.id_detail_kmeans = dk.id_detail_kmeans');
-            $this->db->join('produk p', 'p.id_produk = dk.id_produk');
-            foreach ($gclusters as $gcluster) {
-                $whereIn[] = $gcluster['group_cluster'];
-            }
-            $this->db->where_in('group_cluster', $whereIn);
-            $this->db->where('dk.id_produk <>', $id_produk);
-            $this->db->distinct();
-            $id = $this->db->get()->result_array();
-            $this->db->reset_query();
-
-            // Cek if group cluster hanya satu produk
-            if (empty($id)) {
-                $kosong = array();
-                return $kosong;
-            } else {
-                $this->db->select('produk.id_produk, nama_produk, harga_produk, deskripsi_produk, url_image');
-                $this->db->from('produk');
-                $this->db->join('image', 'image.id_produk = produk.id_produk');
-                $wherein = array();
-                foreach ($id as $key => $value) {
-                    array_push($wherein, $value['id_produk']);
-                }
-                $this->db->where_in('produk.id_produk', $wherein);
-                $this->db->group_by('produk.id_produk');
-                // echo $this->db->get_compiled_select();
-                return $this->db->get();
-            }
-        }
+        // TODO: Get related product
     }
 
     public function addToCart($data)

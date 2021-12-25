@@ -120,13 +120,13 @@ $num_notif = $CI->Cart_model->count();
 			<?php if ($this->session->id_customer) : ?>
 				<span class="linedivide1"></span>
 
-				<a href="<?= site_url() . "/logout" ?>" class="header-wrapicon2 dis-block" onclick="return confirm('Logout?')" title="logout!">
+				<a href="<?= site_url('logout') ?>" class="header-wrapicon2 dis-block" onclick="return confirm('Logout?')" title="logout!">
 					<img src="<?php echo base_url('assets/fashe/images/icons/icon-signout.png') ?>" class="header-icon1" alt="ICON">
 				</a>
 			<?php else : ?>
 				<span class="linedivide1"></span>
 
-				<a href="<?= site_url() . "/login" ?>" class="header-wrapicon2 dis-block">
+				<a href="<?= site_url('login') ?>" class="header-wrapicon2 dis-block">
 					<img src="<?php echo base_url('assets/fashe/images/icons/icon-signin.png') ?>" class="header-icon1" alt="ICON">
 				</a>
 			<?php endif; ?>
@@ -237,13 +237,13 @@ $num_notif = $CI->Cart_model->count();
 					<?php if ($this->session->id_customer) : ?>
 						<span class="linedivide1"></span>
 
-						<a href="<?= site_url() . "/logout" ?>" class="header-wrapicon2 dis-block" onclick="return confirm('Logout?')" title="logout!">
+						<a href="<?= site_url('logout') ?>" class="header-wrapicon2 dis-block" onclick="return confirm('Logout?')" title="logout!">
 							<img src="<?php echo base_url() ?>assets/fashe/images/icons/icon-signout.png" class="header-icon1" alt="ICON">
 						</a>
 					<?php else : ?>
 						<span class="linedivide1"></span>
 
-						<a href="<?= site_url() . "/login" ?>" class="header-wrapicon2 dis-block">
+						<a href="<?= site_url('login') ?>" class="header-wrapicon2 dis-block">
 							<img src="<?php echo base_url() ?>assets/fashe/images/icons/icon-signin.png" class="header-icon1" alt="ICON">
 						</a>
 					<?php endif; ?>
@@ -363,3 +363,4 @@ $num_notif = $CI->Cart_model->count();
 			</nav>
 		</div>
 	</header>
+
