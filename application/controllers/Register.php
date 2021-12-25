@@ -161,15 +161,7 @@ class Register extends CI_Controller
     // $config['wordwrap'] = TRUE;
     // $config['smtp_crypto'] = "ssl";
 
-    $config = array(
-      'protocol' => 'smtp',
-      'smtp_host' => 'smtp.mailtrap.io',
-      'smtp_port' => 2525,
-      'smtp_user' => '16ef3c199dc945',
-      'smtp_pass' => '5569c6b859347a',
-      'crlf' => "\r\n",
-      'newline' => "\r\n"
-    );
+    $config = $this->config->item('email');
 
     // initialize email
     $this->email->initialize($config);

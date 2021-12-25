@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/Rum/';
+$config['base_url'] = 'http://medya-olshop.test/';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/Rum/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,3 +521,16 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+| Email configuration
+*/
+$config['email'] = array(
+	'protocol' => 'smtp',
+	'smtp_host' => 'smtp.mailtrap.io',
+	'smtp_port' => 2525,
+	'smtp_user' => '16ef3c199dc945',
+	'smtp_pass' => '5569c6b859347a',
+	'crlf' => "\r\n",
+	'newline' => "\r\n"
+);
