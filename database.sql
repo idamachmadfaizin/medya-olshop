@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 06 Agu 2019 pada 08.03
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.1
+-- Host: localhost:3306
+-- Waktu pembuatan: 26 Des 2021 pada 17.03
+-- Versi server: 5.7.33
+-- Versi PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rum`
+-- Database: `ci-medyaolshop`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `email_admin`, `password_admin`, `nama_admin`, `nomor_telp_admin`) VALUES
-(1, 'admin@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'admin1', '08212345678');
+(1, 'admin@admin.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'admin', '08212345678');
 
 -- --------------------------------------------------------
 
@@ -80,25 +79,6 @@ CREATE TABLE `cart` (
   `qty_cart` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `cart`
---
-
-INSERT INTO `cart` (`id_cart`, `id_customer`, `id_produk`, `qty_cart`) VALUES
-(1, 2, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `cluster`
---
-
-CREATE TABLE `cluster` (
-  `id_cluster` int(11) NOT NULL,
-  `group_cluster` varchar(2) NOT NULL,
-  `id_detail_kmeans` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 -- --------------------------------------------------------
 
 --
@@ -126,27 +106,6 @@ CREATE TABLE `customer` (
   `customer_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `customer`
---
-
-INSERT INTO `customer` (`id_customer`, `email_customer`, `password_customer`, `nama_customer`, `nomor_telp`, `provinsi`, `kabupaten`, `kota`, `address`, `jenis_kelamin`, `tanggal_lahir`, `id_pendidikan`, `pendapatan`, `url_img_customer`, `email_verification_code`, `active_status`, `customer_created_at`, `customer_updated_at`) VALUES
-(1, 'idamachmadfaizin@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Idam Ahmad Faizin', '6285748177870', '35', '3525', '3525080', 'Duduk Sampeyan Rt 1', 'Pria', '1997-12-08', 5, '3', 'default.jpg', 'D4yT5GHOdwUfN70RxL1rKBIPE6bCnJqzsaWAiVSl2pjtY', 'Y', '2019-07-16 15:59:08', '2019-07-16 20:23:16'),
-(2, 'heruaffandi06@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', NULL, '123456789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default.jpg', 'zZdcw71UGTmuYjaS3viVHoBh26DykLFbxqPgM8OeERQK5', 'Y', '2019-07-17 05:22:40', '2019-07-17 05:23:29');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `detail_kmeans`
---
-
-CREATE TABLE `detail_kmeans` (
-  `id_detail_kmeans` int(11) NOT NULL,
-  `id_kmeans` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `nilai` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 -- --------------------------------------------------------
 
 --
@@ -172,44 +131,6 @@ CREATE TABLE `image` (
   `id_produk` int(11) NOT NULL,
   `url_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `image`
---
-
-INSERT INTO `image` (`id_image`, `id_produk`, `url_image`) VALUES
-(10, 4, 'Cumi Kupas RUM.jpg'),
-(11, 4, 'Cumi Kupas RUM.jpg'),
-(12, 4, 'Cumi Kupas RUM.jpg'),
-(15, 8, 'Salmon-Head-Less-1.jpg'),
-(16, 8, 'Salmon-Head-Less-2.jpg'),
-(17, 8, 'Salmon-Head-Less-3.jpg'),
-(18, 9, 'Kepala-Salmon-Rum-1.jpg'),
-(19, 10, 'Kepiting-Soka-Super-RUM-1.jpg'),
-(32, 40, 'Gindara_Steak_RUM_0.jpg'),
-(33, 40, 'Gindara_Steak_RUM_1.jpg'),
-(34, 40, 'Gindara_Steak_RUM_2.jpg'),
-(35, 41, 'Patin_Butterfly_0.jpeg'),
-(36, 41, 'Patin_Butterfly_1.jpeg'),
-(37, 41, 'Patin_Butterfly_2.jpeg'),
-(38, 42, 'Tuna_Saku_0.png'),
-(39, 43, 'Udang_Raw_PDTO_RUM_0.jpg'),
-(40, 43, 'Udang_Raw_PDTO_RUM_1.jpg'),
-(43, 1, 'Baby_Octopus_RUM_0.jpg'),
-(44, 1, 'Baby_Octopus_RUM_1.jpg'),
-(45, 1, 'Baby_Octopus_RUM_2.jpg'),
-(46, 2, 'UDANG_COOKED_PND_0.jpg'),
-(47, 2, 'UDANG_COOKED_PND_1.jpg'),
-(48, 2, 'UDANG_COOKED_PND_2.jpg'),
-(49, 3, 'KEPALA_IKAN_ODUL_0.jpg'),
-(50, 3, 'KEPALA_IKAN_ODUL_1.jpg'),
-(61, 5, 'CUMI_KUPU-KUPU_RUM_0.jpg'),
-(70, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_0.jpeg'),
-(71, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_1.jpeg'),
-(72, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_2.jpeg'),
-(73, 47, 'Steak_Patin_-_Ikan_Beku_dan_Fillet_3.jpeg'),
-(74, 48, 'Salmon_fillet_0.png'),
-(75, 48, 'Salmon_fillet_2.png');
 
 -- --------------------------------------------------------
 
@@ -755,17 +676,6 @@ CREATE TABLE `kategori` (
   `url_image_kategori` varchar(255) NOT NULL,
   `status_kategori` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kategori`
---
-
-INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `url_image_kategori`, `status_kategori`) VALUES
-(1, 'Seafood', 'kategori seafood.jpg', 0),
-(2, 'Umpan Tuna', 'kategori umpan tuna.jpg', 0),
-(3, 'Dry Seafood', 'dry-seafood.jpg', 0),
-(4, 'Pakan Ikan', 'Fish-Feed.jpg', 1),
-(5, 'Rum', 'Rum.png', 0);
 
 -- --------------------------------------------------------
 
@@ -8023,27 +7933,6 @@ INSERT INTO `kota` (`id_kota`, `nama_kota`, `id_kabupaten`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `k_means`
---
-
-CREATE TABLE `k_means` (
-  `id_kmeans` int(11) NOT NULL,
-  `nama_variable` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `k_means`
---
-
-INSERT INTO `k_means` (`id_kmeans`, `nama_variable`) VALUES
-(1, 'Usia'),
-(2, 'Jenis Kelamin'),
-(3, 'Pendapatan'),
-(4, 'Pendidikan');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `orders`
 --
 
@@ -8096,29 +7985,11 @@ CREATE TABLE `produk` (
   `deskripsi_produk` text NOT NULL,
   `url_produk` varchar(255) NOT NULL,
   `status_produk` tinyint(4) DEFAULT '0',
+  `viewer` int(11) NOT NULL DEFAULT '0',
+  `purchased` int(11) NOT NULL DEFAULT '0',
   `produk_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `produk_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `produk`
---
-
-INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `url_produk`, `status_produk`, `produk_created_at`, `produk_updated_at`) VALUES
-(1, 1, 'Baby Octopus RUM', 70000, 'Baby Octopus RUM adalah salah satu produk Seafood Beku dari RUM Seafood, dibuat dari bahan baku pilihan, diproses secara higienis, dan dikemas dengan baik. Sehingga mutu Baby Octopus RUM sangat terjaga.\r\n\r\nBaby Octopus RUM cocok untuk kebutuhan bisnis maupun pribadi. Kami juga melayani penjualan secara eceran maupun grosir, tentunya dengan harga yang menarik.', 'Baby-Octopus-RUM', 1, '2019-02-06 11:14:55', '2019-07-03 15:43:45'),
-(2, 1, 'UDANG COOKED PND', 60000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged', 'UDANG-COOKED-PND', 0, '2019-02-06 11:16:22', '2019-07-02 07:06:43'),
-(3, 1, 'KEPALA IKAN ODUL', 7000, 'Kepala Ikan Odul adalah produk seafood beku Wijaya Seafood dari Jenis ikan laut dengan taste mirip kakap merah. kepala ikan odul ini cocok untuk gulai kepala ikan odul sebagai ganti kepala kakap merah. wijaya seafood menyediakan Kepala ikan odul segala size kondiai IQF.', 'KEPALA-IKAN-ODUL', 0, '2019-02-06 11:17:04', '2019-07-02 08:30:30'),
-(4, 2, 'BANDENG UTUH', 25000, 'ini deskripsi BANDENG UTUH', 'bandeng-utuh', 0, '2019-02-06 11:18:26', '2019-02-06 11:18:29'),
-(5, 3, 'CUMI KUPU-KUPU RUM', 89500, 'ini deskripsi CUMI KUPU-KUPU RUM', 'CUMI-KUPU-KUPU-RUM', 0, '2019-02-06 11:19:05', '2019-07-02 08:58:16'),
-(8, 1, 'Salmon Head Less', 215000, 'Ini deskripsi Salmon Head Less', 'Salmon-Head-Less', 0, '2019-04-24 15:46:30', '2019-04-24 15:46:30'),
-(9, 1, 'Kepala Salmon Rum', 200000, 'Ini Deskripsi Kepala Salmon Rum', 'kepala-salmon-rum', 0, '2019-04-24 15:52:49', '2019-04-24 15:52:49'),
-(10, 1, 'Kepiting Soka Super RUM', 130000, 'Ini Deskripsi Kepiting Soka Super RUM', 'kepiting-soka-super-rum', 0, '2019-04-24 15:52:49', '2019-04-24 15:52:49'),
-(40, 1, 'Gindara Steak RUM', 106000, 'gindara bro', 'Gindara-Steak-RUM', 0, '2019-06-29 23:27:07', '2019-06-30 09:31:17'),
-(41, 1, 'Patin Butterfly', 25000, 'Patin Butterfly merupakan salah satu produk unggulan RUM Seafood. Sangat menarik untuk dicoba', 'Patin-Butterfly', 0, '2019-06-30 10:00:38', '2019-06-30 10:00:38'),
-(42, 1, 'Tuna Saku', 85000, 'Tuna Saku adalah jenis daging yang dipotong dengan model potongan produk tuna yang biasa di gunakan produsen untuk memenuhi permintaan pasar baik export maupun domestik. Kami juga menyediakan berbagai macam Ikan Beku dan Fillet lainnya.', 'Tuna-Saku', 0, '2019-06-30 10:09:48', '2019-06-30 10:09:48'),
-(43, 1, 'Udang Raw PDTO RUM', 60000, 'Udang Raw PDTO RUM adalah salah satu produk Seafood Beku dari RUM Seafood, dibuat dari bahan baku pilihan, diproses secara higienis, dan dikemas dengan baik. Sehingga mutu Udang Raw PDTO RUM sangat terjaga.\r\n\r\nUdang Raw PDTO RUM dikemas dalam bentuk 500gr, 1kilo, maupun curah. Cocok untuk kebutuhan bisnis maupun pribadi. Kami juga melayani penjualan secara eceran maupun grosir, tentunya dengan harga yang menarik.', 'Udang-Raw-PDTO-RUM', 0, '2019-06-30 10:10:42', '2019-06-30 10:10:42'),
-(47, 1, 'Steak Patin - Ikan Beku dan Fillet', 30000, 'Steak patin adalah salah satu produk ikan beku dan fillet unggulan RUM Seafood. Diproses dengan higienis sehingga mutu terjamin.', 'Steak-Patin---Ikan-Beku-dan-Fillet', 0, '2019-07-02 09:09:55', '2019-07-02 09:09:55'),
-(48, 5, 'Salmon fillet', 100000, 'Ini deskripsi salmon fillet', 'Salmon-fillet', 0, '2019-07-11 01:22:53', '2019-07-11 01:22:53');
 
 -- --------------------------------------------------------
 
@@ -8222,13 +8093,6 @@ ALTER TABLE `cart`
   ADD KEY `id_customer` (`id_customer`) USING BTREE;
 
 --
--- Indeks untuk tabel `cluster`
---
-ALTER TABLE `cluster`
-  ADD PRIMARY KEY (`id_cluster`),
-  ADD KEY `id_detail_kmeans` (`id_detail_kmeans`);
-
---
 -- Indeks untuk tabel `customer`
 --
 ALTER TABLE `customer`
@@ -8238,14 +8102,6 @@ ALTER TABLE `customer`
   ADD KEY `kabupaten` (`kabupaten`),
   ADD KEY `kota` (`kota`),
   ADD KEY `id_pendidikan` (`id_pendidikan`);
-
---
--- Indeks untuk tabel `detail_kmeans`
---
-ALTER TABLE `detail_kmeans`
-  ADD PRIMARY KEY (`id_detail_kmeans`),
-  ADD KEY `id_kmeans` (`id_kmeans`,`id_produk`),
-  ADD KEY `id_produk` (`id_produk`);
 
 --
 -- Indeks untuk tabel `detail_order`
@@ -8288,12 +8144,6 @@ ALTER TABLE `konfirmasi_pembayaran`
 ALTER TABLE `kota`
   ADD PRIMARY KEY (`id_kota`),
   ADD KEY `kabupaten` (`id_kabupaten`);
-
---
--- Indeks untuk tabel `k_means`
---
-ALTER TABLE `k_means`
-  ADD PRIMARY KEY (`id_kmeans`);
 
 --
 -- Indeks untuk tabel `orders`
@@ -8348,25 +8198,13 @@ ALTER TABLE `agama`
 -- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `cluster`
---
-ALTER TABLE `cluster`
-  MODIFY `id_cluster` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `detail_kmeans`
---
-ALTER TABLE `detail_kmeans`
-  MODIFY `id_detail_kmeans` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_order`
@@ -8378,25 +8216,19 @@ ALTER TABLE `detail_order`
 -- AUTO_INCREMENT untuk tabel `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `konfirmasi_pembayaran`
 --
 ALTER TABLE `konfirmasi_pembayaran`
   MODIFY `id_konfirmasi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `k_means`
---
-ALTER TABLE `k_means`
-  MODIFY `id_kmeans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `orders`
@@ -8414,7 +8246,7 @@ ALTER TABLE `pendidikan`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pulau`
@@ -8434,12 +8266,6 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Ketidakleluasaan untuk tabel `cluster`
---
-ALTER TABLE `cluster`
-  ADD CONSTRAINT `cluster_ibfk_1` FOREIGN KEY (`id_detail_kmeans`) REFERENCES `detail_kmeans` (`id_detail_kmeans`);
-
---
 -- Ketidakleluasaan untuk tabel `customer`
 --
 ALTER TABLE `customer`
@@ -8447,13 +8273,6 @@ ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`kabupaten`) REFERENCES `kabupaten` (`id_kabupaten`),
   ADD CONSTRAINT `customer_ibfk_3` FOREIGN KEY (`kota`) REFERENCES `kota` (`id_kota`),
   ADD CONSTRAINT `customer_ibfk_4` FOREIGN KEY (`id_pendidikan`) REFERENCES `pendidikan` (`id_pendidikan`);
-
---
--- Ketidakleluasaan untuk tabel `detail_kmeans`
---
-ALTER TABLE `detail_kmeans`
-  ADD CONSTRAINT `detail_kmeans_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`),
-  ADD CONSTRAINT `detail_kmeans_ibfk_2` FOREIGN KEY (`id_kmeans`) REFERENCES `k_means` (`id_kmeans`);
 
 --
 -- Ketidakleluasaan untuk tabel `detail_order`
