@@ -39,7 +39,7 @@
         <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="<?php echo base_url('assets/img/kategori/' . $value['url_image_kategori']) ?>" alt="IMG-<?php echo $value['nama_kategori'] ?>">
+            <img src="<?php echo base_url('upload/kategori/' . $value['url_image_kategori']) ?>" alt="IMG-<?php echo $value['nama_kategori'] ?>">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
@@ -88,7 +88,7 @@
                 <!-- Block2 -->
                 <div class="block2">
                   <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                    <img src="<?php echo base_url('assets/img/produk/' . $value['url_image']) ?>" alt="IMG-<?php echo $value['nama_produk'] ?>">
+                    <img src="<?php echo base_url('upload/produk/' . $value['url_image']) ?>" alt="IMG-<?php echo $value['nama_produk'] ?>">
 
                     <div class="block2-overlay trans-0-4">
                       <div class="block2-btn-addcart w-size1 trans-0-4">
@@ -126,7 +126,7 @@
                 <!-- Block2 -->
                 <div class="block2">
                   <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                    <img src="<?php echo base_url('assets/img/produk/' . $value['url_image']) ?>" alt="IMG-<?php echo $value['nama_produk'] ?>">
+                    <img src="<?php echo base_url('upload/produk/' . $value['url_image']) ?>" alt="IMG-<?php echo $value['nama_produk'] ?>">
 
                     <div class="block2-overlay trans-0-4">
                       <div class="block2-btn-addcart w-size1 trans-0-4">

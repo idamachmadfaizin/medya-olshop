@@ -130,7 +130,7 @@
                                                 <td class="avatar">
                                                     <div class="round-img">
                                                         <a href="#">
-                                                            <img class="rounded-circle" src="<?= base_url('assets/img/produk/' . $produks->url_image) ?>" alt="">
+                                                            <img class="rounded-circle" src="<?= base_url('upload/produk/' . $produks->url_image) ?>" alt="">
                                                         </a>
                                                     </div>
                                                 </td>

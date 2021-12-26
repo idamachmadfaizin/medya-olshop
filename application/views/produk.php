@@ -134,7 +134,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="<?php echo base_url('assets/img/produk/' . $produk->url_image) ?>" alt="IMG-<?php echo $produk->nama_produk ?>">
+									<img src="<?php echo base_url('upload/produk/' . $produk->url_image) ?>" alt="IMG-<?php echo $produk->nama_produk ?>">
 
 									<div class="block2-overlay trans-0-4">
 										<div class="block2-btn-addcart w-size1 trans-0-4">

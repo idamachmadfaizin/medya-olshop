@@ -28,7 +28,7 @@
                 <td class="column-1">
                   <div class="cart-img-product b-rad-4 o-f-hidden" onclick="window.location = '<?php echo site_url('cart/delete/' . $carts->id_cart) ?>'">
                     <a href="">
-                      <img src="<?php echo base_url('assets/img/produk/' . $carts->url_image) ?>" alt="IMG-<?php $carts->nama_produk ?>">
+                      <img src="<?php echo base_url('upload/produk/' . $carts->url_image) ?>" alt="IMG-<?php $carts->nama_produk ?>">
                     </a>
                   </div>
                 </td>

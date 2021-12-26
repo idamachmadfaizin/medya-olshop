@@ -54,7 +54,7 @@
                   <tr>
                     <td>
                       <div class="table-img-product mx-auto">
-                        <img src="<?= base_url('assets/img/produk/' . $cart->url_image) ?>" alt="IMG-">
+                        <img src="<?= base_url('upload/produk/' . $cart->url_image) ?>" alt="IMG-">
                       </div>
                     </td>
                     <td><?= $cart->nama_produk; ?></td>

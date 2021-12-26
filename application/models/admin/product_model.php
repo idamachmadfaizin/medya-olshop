@@ -98,7 +98,7 @@ class Product_model extends CI_Model
         if (isset($url_images)) {
             if ($_FILES['files']['name']) {
                 foreach ($url_images as $url_image) {
-                    unlink(base_url('assets/img/produk/' . $url_image->url_image));
+                    unlink(base_url('upload/produk/' . $url_image->url_image));
                 }
             }
         }
@@ -160,7 +160,7 @@ class Product_model extends CI_Model
                 // Set preference
                 $config['file_name']      = $nama_produk . " " . $i;
                 $config['allowed_types']  = 'jpg|jpeg|png|gif';
-                $config['upload_path']    = './assets/img/produk/';
+                $config['upload_path']    = './upload/produk/';
                 $config['overwrite']      = true;
                 $config['max_size']       = 1024; // 1MB
                 // $config['file_name']      = str_replace(' ', '-', $this->input->post('nama_produk'));

@@ -77,7 +77,7 @@ $num_notif = $CI->Cart_model->count();
 							<?php foreach ($cart as $carts) : ?>
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="<?php echo base_url('assets/img/produk/' . $carts->url_image) ?>" alt="IMG">
+										<img src="<?php echo base_url('upload/produk/' . $carts->url_image) ?>" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -193,7 +193,7 @@ $num_notif = $CI->Cart_model->count();
 											<div class="header-cart-item-img cover">
 												<!-- <img src="<?php
 																?>" alt="IMG"> -->
-												<img src="<?php echo base_url('assets/img/produk/' . $carts->url_image) ?>" alt="IMG" style="width:'320px'; height:'320px'">
+												<img src="<?php echo base_url('upload/produk/' . $carts->url_image) ?>" alt="IMG" style="width:'320px'; height:'320px'">
 											</div>
 
 											<div class="header-cart-item-txt">

@@ -70,7 +70,7 @@ class Category_model extends CI_Model
 
   private function _uploadImage()
   {
-    $config['upload_path']    = './assets/img/kategori/';
+    $config['upload_path']    = './upload/kategori/';
     $config['allowed_types']  = 'jpg|png';
     $config['file_name']      = str_replace(' ', '-', $this->input->post('nama_kategori'));
     $config['overwrite']      = true;
