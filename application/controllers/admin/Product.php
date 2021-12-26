@@ -9,6 +9,8 @@ class Product extends CI_Controller
 
         $this->load->model('admin/Product_model');
         $this->load->library('pagination');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth_admin();
     }
 
     public function index($offset = 0, $id = 0)
@@ -94,17 +96,15 @@ class Product extends CI_Controller
                 $update = $produk->update($id, $url_images);
                 if ($update) {
                     $this->session->set_flashdata('sukses', 'Produk berhasil diupdate');
-                    $this->index();
                 }
             } else {
                 if ($produk->insert()) {
                     $this->session->set_flashdata('sukses', 'Produk berhasil disimpan');
-                    $this->index();
                 }
             }
         }
 
-        // redirect("admin/product");
+        redirect("admin/product");
     }
 
     public function disable($id)

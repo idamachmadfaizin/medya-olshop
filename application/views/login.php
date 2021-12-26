@@ -31,7 +31,7 @@
                   </div>
                 <?php endif; ?>
 
-                <span class="font-weight-bold">Login with email</span>
+                <span class="font-weight-bold">Login</span>
               </div>
             </div>
           </div>
@@ -76,9 +76,10 @@
     </div> <!-- end row -->
   </div> <!-- End container -->
 </div>
+<?php $this->session->unset_userdata('error_session'); ?>
 
 <div class="fixed-bottom">
-  <a href="<?= site_url()?>/register">
+  <a href="<?= site_url('register')?>">
     <button class="btn btn-light btn-block" style="height: 60px;">Create a New Account</button>
   </a> 
 </div>

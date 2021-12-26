@@ -8,9 +8,8 @@ class Dashboard extends CI_Controller
         parent::__construct();
         $this->load->model('admin/Dashboard_model');
 
-        if (!$this->session->userdata('id_admin')) {
-            redirect('admin/login');
-        }
+        $this->load->model('Middleware_model');
+		$this->Middleware_model->auth_admin();
     }
 
     public function index()

@@ -8,7 +8,6 @@ class Login extends CI_Controller
         parent::__construct();
 
         $this->load->model('admin/LoginAdmin_model');
-        // $this->load->model('Login_model');
     }
 
     public function index()

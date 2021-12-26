@@ -9,6 +9,8 @@ class Profile extends CI_Controller
 		parent::__construct();
 
 		$this->load->model('Profile_model');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
 	}
 
 	public function index()
@@ -37,7 +39,8 @@ class Profile extends CI_Controller
 			$this->session->set_flashdata('updated', 'Update Profile Success');
 		}
 
-		$this->index();
+		redirect('profile');
+		// $this->index();
 	}
 
 	public function getKabupaten()

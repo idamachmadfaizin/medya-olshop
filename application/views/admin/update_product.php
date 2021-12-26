@@ -100,7 +100,7 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-
+<?php $this->session->unset_userdata('sukses'); ?>
 <div class="clearfix"></div>
 
 <?php $this->load->view('partials/footer_admin'); ?>

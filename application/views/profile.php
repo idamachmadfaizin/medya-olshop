@@ -141,6 +141,9 @@
   </div>
   <?= form_close() ?>
 </div>
+<?php $this->session->unset_userdata('updated'); ?>
+<?php $this->session->unset_userdata('incompleteData'); ?>
+
 
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->

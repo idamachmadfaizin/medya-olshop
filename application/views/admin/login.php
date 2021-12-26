@@ -41,7 +41,7 @@
             <div class="login-content">
                 <div class="login-logo">
                     <a href="index.html">
-                        <img class="align-content" src="<?= base_url('assets\img\logos\logo_Rumseafood.png') ?>" alt="">
+                        <img class="align-content" src="<?= base_url('assets\img\logos\logo_brand.png') ?>" alt="">
                     </a>
                 </div>
                 <div class="login-form">
@@ -77,6 +77,7 @@
         </div>
     </div>
 </body>
+<?php $this->session->unset_userdata('error_session'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>

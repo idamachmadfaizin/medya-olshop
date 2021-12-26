@@ -9,6 +9,8 @@ class Order extends CI_Controller
 
     $this->load->model('Order_model');
     $this->load->library('pagination');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
   }
 
   public function index($offset = 0)

@@ -252,25 +252,25 @@
 																							} else {
 																								echo 'btn-light';
 																							}
-																							?>" title="Menunggu" onclick="window.location.href = '<?= site_url() . '/admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Menunggu'; ?>'"><i class="fas fa-clock"></i></button>
+																							?>" title="Menunggu" onclick="window.location.href = '<?= site_url('admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Menunggu') ?>'"><i class="fas fa-clock"></i></button>
 														<button type="button" class="btn <?php if ($order->status == 'Dibayar') {
 																								echo 'btn-primary';
 																							} else {
 																								echo 'btn-light';
 																							}
-																							?>" title="Dibayar" onclick="window.location.href = '<?= site_url() . '/admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Dibayar' ?>'"><i class="fas fa-money-bill"></i></button>
+																							?>" title="Dibayar" onclick="window.location.href = '<?= site_url('admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Dibayar') ?>'"><i class="fas fa-money-bill"></i></button>
 														<button type="button" class="btn <?php if ($order->status == 'Proses') {
 																								echo 'btn-success';
 																							} else {
 																								echo 'btn-light';
 																							}
-																							?>" title="Proses" onclick="window.location.href = '<?= site_url() . '/admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Proses' ?>'"><i class="fas fa-sync"></i></button>
+																							?>" title="Proses" onclick="window.location.href = '<?= site_url('admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Proses') ?>'"><i class="fas fa-sync"></i></button>
 														<button type="button" class="btn <?php if ($order->status == 'Pengiriman') {
 																								echo 'btn-secondary';
 																							} else {
 																								echo 'btn-light';
 																							}
-																							?>" title="Pengiriman" onclick="window.location.href = '<?= site_url() . '/admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Pengiriman' ?>'"><i class="fas fa-truck"></i></button>
+																							?>" title="Pengiriman" onclick="window.location.href = '<?= site_url('admin/dashboard/updateStatus?id=' . $order->id_order . '&status=Pengiriman') ?>'"><i class="fas fa-truck"></i></button>
 													</div>
 												</td>
 											</tr>

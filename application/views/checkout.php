@@ -27,7 +27,7 @@
             <span><?= $profile->address; ?></span>
           </div>
           <div class="col-3 text-right">
-            <a href="<?= site_url() . "/profile" ?>" class="font-weight-bold text-rum">CHANGE</a>
+            <a href="<?= site_url('profile') ?>" class="font-weight-bold text-rum">CHANGE</a>
           </div>
         </div>
       </div>
@@ -37,8 +37,6 @@
   <div class="row">
     <div class="col">
       <div class="mt-40">
-        <? // form_open(site_url().'/cart/update') 
-        ?>
         <div class="container-table-cart pos-relative">
           <div class="wrap-table-shopping-cart bgwhite">
             <table id="detail_cart" class="table table-shopping-cart mb-0">
@@ -119,7 +117,7 @@
     <div class="col-12 d-flex justify-content-end">
       <div class="size10 trans-0-4 m-t-10 m-b-10">
         <!-- <a href="" class="nounderline"> -->
-        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="location.href='<?= site_url() . '/checkout/makeorder/'; ?>'">
+        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="location.href='<?= site_url('checkout/makeorder'); ?>'">
           MAKE ORDER
         </button>
         <!-- </a> -->

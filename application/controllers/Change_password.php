@@ -9,6 +9,9 @@ class Change_password extends CI_Controller
     parent::__construct();
 
     $this->load->model('Change_password_model');
+
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
   }
 
   public function index()

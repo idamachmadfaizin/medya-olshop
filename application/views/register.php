@@ -99,7 +99,7 @@
       <div class="col-3"></div>
     </div> <!-- end row -->
   </div> <!-- End container -->
-</div>
+</div><?php $this->session->unset_userdata('message'); ?>
 
 <div class="fixed-bottom">
   <a href="<?= site_url('login') ?>">

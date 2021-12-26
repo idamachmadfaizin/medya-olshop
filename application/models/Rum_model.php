@@ -24,6 +24,10 @@ class rum_model extends CI_Model
 
     public function getDetailProduk($id_produk)
     {
+		$this->db->set('viewer', 'viewer+1', false);
+		$this->db->where('id_produk', $id_produk);
+		$this->db->update('produk');
+
         $this->db->select('produk.id_produk, kategori.id_kategori, nama_kategori, nama_produk, harga_produk, deskripsi_produk, url_image');
         $this->db->from('produk');
         $this->db->join('image', 'image.id_produk = produk.id_produk');
@@ -53,6 +57,14 @@ class rum_model extends CI_Model
     public function getRelatedProduk($id_produk)
     {
         // TODO: Get related product
+		$this->db->select('produk.id_produk, nama_produk, harga_produk, deskripsi_produk, url_image');
+		$this->db->from('produk');
+		$this->db->join('image', 'image.id_produk = produk.id_produk');
+		$this->db->order_by('viewer', 'desc');
+		$this->db->order_by('purchased', 'desc');
+		$this->db->group_by('produk.id_produk');
+		$this->db->limit(5);
+		return $this->db->get();
     }
 
     public function addToCart($data)

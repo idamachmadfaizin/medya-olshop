@@ -8,6 +8,8 @@ class Cart extends CI_Controller {
 
     // $this->load->library('cart');
 		$this->load->model('cart_model');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
 	}
 
 	function index() {

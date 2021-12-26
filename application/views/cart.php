@@ -9,9 +9,7 @@
 <section class="cart bgwhite p-t-70 p-b-100">
   <div class="container">
     <!-- Cart item -->
-    <?= form_open(site_url() . '/cart/update') ?>
-    <!-- <form action="<?php // site_url().'/cart/update' 
-                        ?>" method="post"> -->
+    <?= form_open(site_url('cart/update')) ?>
     <div class="container-table-cart pos-relative">
       <div class="wrap-table-shopping-cart bgwhite">
         <table id="detail_cart" class="table table-shopping-cart">
@@ -28,7 +26,7 @@
             <?php foreach ($cart as $carts) : ?>
               <tr class="table-row">
                 <td class="column-1">
-                  <div class="cart-img-product b-rad-4 o-f-hidden" onclick="window.location = '<?php echo site_url() . '/cart/delete/' . $carts->id_cart ?>'">
+                  <div class="cart-img-product b-rad-4 o-f-hidden" onclick="window.location = '<?php echo site_url('cart/delete/' . $carts->id_cart) ?>'">
                     <a href="">
                       <img src="<?php echo base_url('assets/img/produk/' . $carts->url_image) ?>" alt="IMG-<?php $carts->nama_produk ?>">
                     </a>
@@ -76,7 +74,7 @@
       <?= form_close(); ?>
       <div class="size10 trans-0-4 m-t-10 m-b-10 m-l-70">
         <!-- Button -->
-        <a href="<?= site_url() . '/checkout' ?>" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+        <a href="<?= site_url('checkout') ?>" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
           CHECKOUT
         </a>
       </div>

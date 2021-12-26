@@ -29,7 +29,7 @@ $num_notif = $CI->Cart_model->count();
 	<div class="wrap_header fixed-header2 trans-0-4">
 		<!-- Logo -->
 		<a href="<?= base_url() ?>" class="logorum">
-			<img src="<?php echo base_url() ?>assets/img/logos/logo_Rumseafood.png" alt="IMG-LOGO">
+			<img src="<?php echo base_url() ?>assets/img/logos/logo_brand.png" alt="IMG-LOGO">
 		</a>
 
 		<!-- Menu -->
@@ -59,7 +59,7 @@ $num_notif = $CI->Cart_model->count();
 		<!-- Header Icon -->
 		<div class="header-icons">
 			<?php if ($this->session->id_customer) : ?>
-				<a href="<?= site_url() . "/profile" ?>" class="header-wrapicon1 dis-block">
+				<a href="<?= site_url('profile') ?>" class="header-wrapicon1 dis-block">
 					<img src="<?php echo base_url() ?>assets/fashe/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 				</a>
 
@@ -81,7 +81,7 @@ $num_notif = $CI->Cart_model->count();
 									</div>
 
 									<div class="header-cart-item-txt">
-										<a href="<?= site_url() . '/detail_produk/detail/' . $carts->id_produk ?>" class="header-cart-item-name">
+										<a href="<?= site_url('detail_produk/detail/' . $carts->id_produk) ?>" class="header-cart-item-name">
 											<?php echo $carts->nama_produk ?>
 										</a>
 
@@ -100,7 +100,7 @@ $num_notif = $CI->Cart_model->count();
 						<div class="header-cart-buttons">
 							<div class="header-cart-wrapbtn">
 								<!-- Button -->
-								<a href="<?= site_url() . '/cart' ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+								<a href="<?= site_url('cart') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 									View Cart
 								</a>
 							</div>
@@ -141,7 +141,7 @@ $num_notif = $CI->Cart_model->count();
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="<?= base_url() ?>" class="logorum">
-					<img src="<?php echo base_url('assets/img/logos/logo_Rumseafood.png') ?>" alt="IMG-LOGO">
+					<img src="<?php echo base_url('assets/img/logos/logo_brand.png') ?>" alt="IMG-LOGO">
 				</a>
 
 				<!-- Menu -->
@@ -172,7 +172,7 @@ $num_notif = $CI->Cart_model->count();
 				<div class="header-icons">
 
 					<?php if ($this->session->id_customer) : ?>
-						<a href="<?= site_url() . "/profile" ?>" class="header-wrapicon1 dis-block">
+						<a href="<?= site_url('profile') ?>" class="header-wrapicon1 dis-block">
 							<img src="<?php echo base_url('assets/fashe/images/icons/icon-header-01.png') ?>" class="header-icon1" alt="ICON">
 						</a>
 
@@ -197,7 +197,7 @@ $num_notif = $CI->Cart_model->count();
 											</div>
 
 											<div class="header-cart-item-txt">
-												<a href="<?= site_url() . '/detail_produk/detail/' . $carts->id_produk ?>" class="header-cart-item-name">
+												<a href="<?= site_url('detail_produk/detail/' . $carts->id_produk) ?>" class="header-cart-item-name">
 													<?php echo $carts->nama_produk ?>
 												</a>
 
@@ -216,7 +216,7 @@ $num_notif = $CI->Cart_model->count();
 								<div class="header-cart-buttons">
 									<div class="header-cart-wrapbtn">
 										<!-- Button -->
-										<a href="<?= site_url() . '/cart' ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										<a href="<?= site_url('cart') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 											View Cart
 										</a>
 									</div>
@@ -224,7 +224,7 @@ $num_notif = $CI->Cart_model->count();
 									<div class="header-cart-wrapbtn">
 										<!-- Bookmark -->
 										<!-- Button -->
-										<a href="<?= site_url() . '/checkout' ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										<a href="<?= site_url('checkout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 											Check Out
 										</a>
 									</div>
@@ -257,7 +257,7 @@ $num_notif = $CI->Cart_model->count();
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
 			<a href="index.html" class="logo-mobile">
-				<img src="<?php echo base_url() ?>assets/img/logos/logo_Rumseafood.png" alt="IMG-LOGO">
+				<img src="<?php echo base_url() ?>assets/img/logos/logo_brand.png" alt="IMG-LOGO">
 			</a>
 
 			<!-- Button show menu -->
@@ -284,7 +284,7 @@ $num_notif = $CI->Cart_model->count();
 										</div>
 
 										<div class="header-cart-item-txt">
-											<a href="<?= site_url() . '/detail_produk/detail/' . $carts->id_produk ?>" class="header-cart-item-name">
+											<a href="<?= site_url('detail_produk/detail/' . $carts->id_produk) ?>" class="header-cart-item-name">
 												<?php echo $carts->nama_produk ?>
 											</a>
 
@@ -303,7 +303,7 @@ $num_notif = $CI->Cart_model->count();
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="<?= site_url() . '/cart' ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="<?= site_url('cart') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>

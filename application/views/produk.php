@@ -139,7 +139,7 @@
 									<div class="block2-overlay trans-0-4">
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="<?= site_url() . '/produk/addtocart/' . $produk->id_produk ?>">
+											<a href="<?= site_url('produk/addtocart/' . $produk->id_produk) ?>">
 												<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 													Add to Cart
 												</button>
@@ -150,7 +150,7 @@
 
 								<div class="block2-txt p-t-20">
 									<p hidden class="hidden-id_produk"><?= $produk->id_produk ?></p>
-									<a href="<?php echo site_url() . '/detail_produk/detail/' . $produk->id_produk ?>" class="block2-name dis-block s-text3 p-b-5">
+									<a href="<?php echo site_url('detail_produk/detail/' . $produk->id_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
 										<?php echo $produk->nama_produk ?>
 									</a>
 

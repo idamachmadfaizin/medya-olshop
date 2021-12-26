@@ -10,6 +10,8 @@ class Payment_conf extends CI_Controller
 
     $this->load->model('Payment_conf_model');
     $this->load->helper('file');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
   }
 
   public function index()

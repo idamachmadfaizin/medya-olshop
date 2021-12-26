@@ -10,20 +10,20 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_1.png') ?>" class="d-block w-100" alt="...">
+      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_1.png') ?>" class="d-block w-100" style="object-fit: cover; height: 570px;" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_2.png') ?>" class="d-block w-100" alt="...">
+      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_2.png') ?>" class="d-block w-100" style="object-fit: cover; height: 570px;" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_3.png') ?>" class="d-block w-100" alt="...">
+      <img src="<?php echo base_url('assets\img\banner_carousel\banner_carousel_3.png') ?>" class="d-block w-100" style="object-fit: cover; height: 570px;" alt="...">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -43,7 +43,7 @@
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
-              <a href="<?= site_url() . '/produk?kategori=' . $value['id_kategori'] ?>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 nounderline">
+              <a href="<?= site_url('produk?kategori=' . $value['id_kategori']) ?>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 nounderline">
                 <?php echo $value['nama_kategori'] ?>
               </a>
             </div>
@@ -93,7 +93,7 @@
                     <div class="block2-overlay trans-0-4">
                       <div class="block2-btn-addcart w-size1 trans-0-4">
                         <!-- Button -->
-                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='<?= site_url() . '/landing_page/addtocart/' . $value['id_produk'] ?>'">
+                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='<?= site_url('landing_page/addtocart/' . $value['id_produk']) ?>'">
                           Add to Cart
                         </button>
                       </div>
@@ -101,7 +101,7 @@
                   </div>
 
                   <div class="block2-txt p-t-20">
-                    <a href="<?php echo site_url() . '/detail_produk/detail/' . $value['id_produk'] ?>" class="block2-name dis-block s-text3 color0-hov p-b-5 nounderline">
+                    <a href="<?php echo site_url('detail_produk/detail/' . $value['id_produk']) ?>" class="block2-name dis-block s-text3 color0-hov p-b-5 nounderline">
                       <?php echo $value['nama_produk'] ?>
                     </a>
 
@@ -131,7 +131,7 @@
                     <div class="block2-overlay trans-0-4">
                       <div class="block2-btn-addcart w-size1 trans-0-4">
                         <!-- Button -->
-                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='<?= site_url() . '/landing_page/addtocart/' . $value['id_produk'] ?>'">
+                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='<?= site_url('landing_page/addtocart/' . $value['id_produk']) ?>'">
                           Add to Cart
                         </button>
                       </div>
@@ -139,7 +139,7 @@
                   </div>
 
                   <div class="block2-txt p-t-20">
-                    <a href="<?php echo site_url() . '/detail_produk/detail/' . $value['id_produk'] ?>" class="block2-name dis-block s-text3 color0-hov p-b-5 nounderline">
+                    <a href="<?php echo site_url('detail_produk/detail/' . $value['id_produk']) ?>" class="block2-name dis-block s-text3 color0-hov p-b-5 nounderline">
                       <?php echo $value['nama_produk'] ?>
                     </a>
 

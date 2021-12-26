@@ -7,12 +7,12 @@
 		<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 	</a>
 
-	<a href="<?php echo site_url() . '/produk' ?>" class="s-text16">
+	<a href="<?php echo site_url('produk') ?>" class="s-text16">
 		Product
 		<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 	</a>
 
-	<a href="<?= site_url() . '/produk?kategori=' . $detailProduk[0]['id_kategori'] ?>" class="s-text16">
+	<a href="<?= site_url('produk?kategori=' . $detailProduk[0]['id_kategori']) ?>" class="s-text16">
 		<?php echo $detailProduk[0]['nama_kategori'] ?>
 		<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 	</a>
@@ -69,7 +69,7 @@
 						<p style="margin-right:20px;">Kg</p>
 						<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
 							<!-- Button -->
-							<a href="<?= site_url() . '/detail_produk/addtocart/' . $detailProduk[0]['id_produk'] ?>">
+							<a href="<?= site_url('detail_produk/addtocart/' . $detailProduk[0]['id_produk']) ?>">
 								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 									Add to Cart
 								</button>
@@ -134,7 +134,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="<?php echo site_url() . '/detail_produk/detail/' . $value['id_produk'] ?>" class="block2-name dis-block s-text3 p-b-5">
+									<a href="<?php echo site_url('detail_produk/detail/' . $value['id_produk']) ?>" class="block2-name dis-block s-text3 p-b-5">
 										<?php echo $value['nama_produk'] ?>
 									</a>
 

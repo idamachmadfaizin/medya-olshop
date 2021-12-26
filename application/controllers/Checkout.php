@@ -11,6 +11,9 @@ class Checkout extends CI_Controller
 		$this->load->model('cart_model');
 		$this->load->model('Profile_model');
 		$this->load->model('Rum_model');
+
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
 	}
 
 	public function index()

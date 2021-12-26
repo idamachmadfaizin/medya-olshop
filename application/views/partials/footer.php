@@ -34,25 +34,25 @@
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-map-marker-alt contact"></i>
 						</div>
-						<span>Swan Regency - Sidoarjo</span>
+						<span>1188 Hahn Shoals - Port Walterburgh</span>
 					</li>
 					<li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-phone contact"></i>
 						</div>
-						<span>082123456789</span>
+						<span>417-816-2471</span>
 					</li>
 					<li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-envelope contact"></i>
 						</div>
-						<span>Rumseafood@gmail.com</span>
+						<span>lorem@mail.com</span>
 					</li>
 					<li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-info contact"></i>
 						</div>
-						<span>About Us</span>
+						<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis.</span>
 					</li>
 				</ul>
 			</div>

@@ -9,8 +9,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admin - RUM</title>
-	<meta name="description" content="Admin - RUM">
+	<title>Admin -  <?= $this->config->item('app_name'); ?></title>
+	<meta name="description" content="Admin - <?= $this->config->item('app_name'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -84,46 +84,36 @@
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="<?php if (current_url() == site_url() . '/admin/dashboard') {
+					<li class="<?php if (current_url() == site_url('admin/dashboard')) {
 									echo "active";
 								} ?>">
-						<a href="<?= site_url() . '/admin/dashboard' ?>"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+						<a href="<?= site_url('admin/dashboard') ?>"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
 					</li>
 					<li class="menu-title">Data Master</li><!-- /.menu-title -->
-					<li class="<?php if (current_url() == site_url() . '/admin/category/') {
+					<li class="<?php if (current_url() == site_url('admin/category')) {
 									echo "active";
 								} ?>">
-						<a href="<?= site_url() . '/admin/category/index/0' ?>"><i class="menu-icon fas fa-tags"></i>Category</a>
+						<a href="<?= site_url('admin/category/index/0') ?>"><i class="menu-icon fas fa-tags"></i>Category</a>
 					</li>
-					<li class="<?php if (current_url() == site_url() . '/admin/product') {
+					<li class="<?php if (current_url() == site_url('admin/product')) {
 									echo "active";
 								} ?>">
-						<a href="<?= site_url() . '/admin/product/index/0' ?>"><i class="menu-icon fas fa-fish"></i>Product</a>
+						<a href="<?= site_url('admin/product/index/0') ?>"><i class="menu-icon fas fa-box"></i>Product</a>
 					</li>
-					<li class="<?php if (current_url() == site_url() . '/admin/customer') {
+					<li class="<?php if (current_url() == site_url('admin/customer')) {
 									echo "active";
 								} ?>">
-						<a href="<?= site_url() . '/admin/customer' ?>"><i class="menu-icon fas fa-user"></i>Customer</a>
-					</li>
-					<li class="<?php if (current_url() == site_url() . '/admin/kmeans') {
-									echo "active";
-								} ?>">
-						<a href="<?= site_url() . '/admin/kmeans' ?>"><i class="menu-icon fab fa-korvue"></i>K-means</a>
+						<a href="<?= site_url('admin/customer') ?>"><i class="menu-icon fas fa-user"></i>Customer</a>
 					</li>
 					<li class="menu-title">Data Order</li><!-- /.menu-title -->
-					<li class="<?php if (current_url() == site_url() . '/admin/order') {
+					<li class="<?php if (current_url() == site_url('admin/order')) {
 									echo "active";
 								} ?>">
-						<a href="<?= site_url() . '/admin/order' ?>"><i class="menu-icon fas fa-shopping-cart"></i></i>Orders</a>
+						<a href="<?= site_url('admin/order') ?>"><i class="menu-icon fas fa-shopping-cart"></i></i>Orders</a>
 					</li>
 
 					<li class="menu-title">Report</li><!-- /.menu-title -->
-					<!-- <li><a href="<?= site_url() . '/admin/order' ?>"><i class="menu-icon fas fa-cart-arrow-down"></i>Order</a></li> -->
-					<!-- <li><a href="<? // site_url().'/admin/purchase' 
-										?>"><i class="menu-icon far fa-credit-card"></i>Purchase</a></li>
-					<li><a href="<? // site_url().'/admin/delivery' 
-									?>"><i class="menu-icon fas fa-truck"></i>Delivery of Product</a></li> -->
-					<li><a href="<?= site_url() . '/admin/report' ?>"><i class="menu-icon fas fa-file-signature"></i>Report</a></li>
+					<li><a href="<?= site_url('admin/report') ?>"><i class="menu-icon fas fa-file-signature"></i>Report</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
@@ -135,49 +125,15 @@
 		<header id="header" class="header">
 			<div class="top-left">
 				<div class="navbar-header">
-					<span class="navbar-brand" style="font-family:'Montserrat'"><b>RUM SEAFOOD</b></span>
-					<!-- <a class="navbar-brand hidden" href="./"><img src="<?php // base_url()
-																			?>assets/elaadmin/images/logo2.png" alt="Logo"></a> -->
-					<a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+					<a href="<?= base_url() ?>" style="margin-left: 2rem;">
+						<img src="<?php echo base_url() ?>assets/img/logos/logo_brand.png" alt="IMG-LOGO" style="height: 53px;">
+					</a>
+					<!-- <span class="navbar-brand" style="font-family:'Montserrat'"><b><?= $this->config->item('app_name'); ?></b></span> -->
+					<a id="menuToggle" class="menutoggle" style="margin-left: 4rem;"><i class="fa fa-bars"></i></a>
 				</div>
 			</div>
 			<div class="top-right">
 				<div class="header-menu">
-					<div class="header-left">
-						<button class="search-trigger"><i class="fa fa-search"></i></button>
-						<div class="form-inline">
-							<form action="" method="get" class="search-form">
-								<input name="search" class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-								<button class="form-control" type="submit"></button>
-								<button class="search-close "><i class="fa fa-close"></i></button>
-							</form>
-						</div>
-
-						<!-- NOTIFICATION -->
-						<!-- <div class="dropdown for-notification">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown"
-							 aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-bell"></i>
-								<span class="count bg-danger">3</span>
-							</button>
-							<div class="dropdown-menu" aria-labelledby="notification">
-								<p class="red">You have 3 Notification</p>
-								<a class="dropdown-item media" href="#">
-									<i class="fa fa-check"></i>
-									<p>Server #1 overloaded.</p>
-								</a>
-								<a class="dropdown-item media" href="#">
-									<i class="fa fa-info"></i>
-									<p>Server #2 overloaded.</p>
-								</a>
-								<a class="dropdown-item media" href="#">
-									<i class="fa fa-warning"></i>
-									<p>Server #3 overloaded.</p>
-								</a>
-							</div>
-						</div> -->
-
-					</div>
 
 					<div class="user-area dropdown float-right">
 						<a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -189,7 +145,7 @@
 
 							<a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a> -->
 
-							<a class="nav-link" href="<?= site_url() . "/logout/admin" ?>"><i class="fa fa-power -off"></i>Logout</a>
+							<a class="nav-link" href="<?= site_url('logout/admin') ?>"><i class="fa fa-power -off"></i>Logout</a>
 						</div>
 					</div>
 

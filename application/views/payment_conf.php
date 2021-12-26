@@ -37,7 +37,7 @@
           <label for="noinvoice" class="col-sm-5 col-form-label">No. Invoice</label>
           <div class="col-sm-7">
             <select name="noinvoice" id="noinvoice" class="custom-select custom-select-sm invoice-select" onchange="myFunction()">
-              <option <?php if (!$this->input->get('invoice')) {
+              <option value="" <?php if (!$this->input->get('invoice')) {
                         echo "selected";
                       } ?>>Choose</option>
               <?php foreach ($no_invoice as $no_invoice) : ?>
@@ -111,13 +111,13 @@
       </div>
     </div>
   </div>
-</div>
+</div><?php $this->session->unset_userdata('sukses'); ?>
 
 
 <script type="text/javascript">
   function myFunction() {
     var invoice = document.getElementById("noinvoice").value;
-    location = "<?= site_url() . '/payment_conf?invoice=' ?>" + invoice;
+    location = "<?= site_url('payment_conf?invoice=') ?>" + invoice;
   }
 </script>
 

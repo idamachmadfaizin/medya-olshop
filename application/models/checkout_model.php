@@ -20,6 +20,12 @@ class checkout_model extends CI_Model
 
   public function insDetailOrder($data)
   {
+		$this->db->set('purchased', 'purchased+1', false);
+		$this->db->where_in('id_produk', array_map(function($val) {
+			return $val['id_produk'];
+		}, $data));
+		$this->db->update('produk');
+
     return $this->db->insert_batch('detail_order', $data);
   }
   public function delete_cart()

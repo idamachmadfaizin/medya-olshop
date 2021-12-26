@@ -61,5 +61,6 @@
     </div>
   <?= form_close() ?>
 </div>
+<?php $this->session->unset_userdata('updated'); ?>
 
 <?php $this->load->view('partials/footer'); ?>

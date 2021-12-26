@@ -10,6 +10,8 @@ class Register extends CI_Controller
 
     $this->load->model('Register_model');
     $this->load->helper('string');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth();
   }
 
   public function index()

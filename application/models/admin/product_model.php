@@ -147,8 +147,6 @@ class Product_model extends CI_Model
     private function _uploadImage($nama_produk)
     {
         $countfiles = count($_FILES['files']['name']);
-        // var_dump($_FILES['files']['name'][0]);
-        // die();
 
         for ($i = 0; $i < $countfiles; $i++) {
             if (!empty($_FILES['files']['name'][$i])) {

@@ -9,6 +9,8 @@ class Category extends CI_Controller
 
     $this->load->model('admin/Category_model');
     $this->load->library('pagination');
+		$this->load->model('Middleware_model');
+		$this->Middleware_model->auth_admin();
   }
 
   public function index($offset = 0, $id = 0)
