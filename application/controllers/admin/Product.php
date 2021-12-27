@@ -53,8 +53,6 @@ class Product extends CI_Controller
         } else {
             $data['singleProduk'] = "";
         }
-        // var_dump($data);
-        // die();
 
         $this->load->view('admin/product', $data);
     }

@@ -51,6 +51,12 @@
                                                                                                         } ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
+                                    <label for="stock" class="form-control-label">Stok</label>
+                                    <input type="number" name="stock" id="stock" value="<?php if (!empty($singleProduk)) {
+                                                                                                            echo $singleProduk[0]->stock;
+                                                                                                        } ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
                                     <label for="kategori_produk" class="form-control-label">Kategori Produk</label>
                                     <select name="kategori_produk" id="kategori_produk" class="form-control">
                                         <option>Please select</option>
@@ -110,6 +116,7 @@
                                             <th class="serial">#</th>
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
+                                            <th>Stok</th>
                                             <th>Kategori</th>
                                             <th>Deskripsi</th>
                                             <th class="avatar">Images</th>
@@ -123,6 +130,7 @@
                                                 <td class="serial"><?= $offset; ?></td>
                                                 <td><span><?= $produks->nama_produk; ?></span></td>
                                                 <td>Rp<?= number_format($produks->harga_produk, 0, ",", ".") ?></td>
+                                                <td><span><?= $produks->stock; ?></span></td>
                                                 <td><span><?= $produks->nama_kategori; ?></span></td>
                                                 <td><span><?= $produks->deskripsi_produk ?></span></td>
                                                 <td class="avatar">

@@ -34,26 +34,26 @@
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-map-marker-alt contact"></i>
 						</div>
-						<span>1188 Hahn Shoals - Port Walterburgh</span>
+						<span>RUKO DRIOREJO jL.Kota Baru Driorejo no: 34A Kab.Gresik Jawa timur</span>
 					</li>
 					<li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-phone contact"></i>
 						</div>
-						<span>417-816-2471</span>
+						<span>089711073533</span>
 					</li>
 					<li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-envelope contact"></i>
 						</div>
-						<span>lorem@mail.com</span>
+						<span>melysashop@gmail.com</span>
 					</li>
-					<li style="margin-bottom: 10px;">
+					<!-- <li style="margin-bottom: 10px;">
 						<div class="d-flex justify-content-center contact-box-icon">
 							<i class="fas fa-info contact"></i>
 						</div>
 						<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis.</span>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

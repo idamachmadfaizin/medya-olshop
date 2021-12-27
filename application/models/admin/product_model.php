@@ -8,6 +8,7 @@ class Product_model extends CI_Model
     public $id_kategori;
     public $nama_produk;
     public $harga_produk;
+    public $stock;
     public $deskripsi_produk;
     public $url_produk;
 
@@ -25,7 +26,6 @@ class Product_model extends CI_Model
                 'label' => 'Harga Produk',
                 'rules' => 'trim|required'
             ],
-
             [
                 'field' => 'kategori_produk',
                 'label' => 'Kategori Produk',
@@ -35,8 +35,7 @@ class Product_model extends CI_Model
     }
     public function selectAll($limit, $offset)
     {
-        // $this->db->select('distinct produk.id_produk, produk.id_kategori, produk.nama_produk, produk.harga_produk, produk.deskripsi_produk, produk.url_produk, produk.produk_created_at, produk.produk_updated_at, image.id_image, image.id_produk, image.url_image, kategori.id_kategori, kategori.nama_kategori, kategori.url_image_kategori, kategori.status_kategori');
-        $this->db->select('produk.id_produk, produk.id_kategori, produk.nama_produk, produk.harga_produk, produk.deskripsi_produk, produk.url_produk, produk.status_produk, image.id_image, image.url_image, kategori.nama_kategori, kategori.url_image_kategori');
+        $this->db->select('produk.id_produk, produk.id_kategori, produk.nama_produk, produk.harga_produk, produk.stock, produk.deskripsi_produk, produk.url_produk, produk.status_produk, image.id_image, image.url_image, kategori.nama_kategori, kategori.url_image_kategori');
         $this->db->limit($limit, $offset);
         $this->db->from($this->_table);
         $this->db->join('image', 'image.id_produk = ' . $this->_table . '.id_produk', 'left');
@@ -74,6 +73,7 @@ class Product_model extends CI_Model
         $this->id_kategori = $post['kategori_produk'];
         $this->nama_produk = $post['nama_produk'];
         $this->harga_produk = $post['harga_produk'];
+        $this->stock = $post['stock'];
         $this->deskripsi_produk = $post['deskripsi_produk'];
         $this->url_produk = str_replace(" ", "-", $post['nama_produk']);
 
@@ -92,19 +92,21 @@ class Product_model extends CI_Model
         $this->id_kategori = $post['kategori_produk'];
         $this->nama_produk = $post['nama_produk'];
         $this->harga_produk = $post['harga_produk'];
+		$this->stock = $post['stock'];
         $this->deskripsi_produk = $post['deskripsi_produk'];
         $this->url_produk = str_replace(" ", "-", $post['nama_produk']);
 
         if (isset($url_images)) {
-            if ($_FILES['files']['name']) {
+			$files = $_FILES['files']['name'];
+            if (count($files) > 0 && !empty($files[0])) {
                 foreach ($url_images as $url_image) {
                     unlink(base_url('upload/produk/' . $url_image->url_image));
                 }
+				$this->db->delete('image', array('id_produk' => $id_produk));
             }
         }
 
         $productNames = $this->_uploadImage($this->nama_produk);
-        $this->db->delete('image', array('id_produk' => $id_produk));
         if ($productNames) {
             foreach ($productNames as $productName) {
                 $data = new stdClass();
