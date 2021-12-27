@@ -16,8 +16,6 @@ class Profile extends CI_Controller
 	public function index()
 	{
 		//get master select options    
-		// $data['agamas'] = $this->Profile_model->masterAgama();
-		$data['pendidikans'] = $this->Profile_model->masterPendidikan();
 		$data['provinsis'] = $this->Profile_model->masterProvinsi();
 		//end
 

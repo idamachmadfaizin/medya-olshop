@@ -17,7 +17,7 @@ $num_notif = $CI->Cart_model->count();
 <html lang="en">
 
 <head>
-	<title>RUM Seafood</title>
+	<title><?= $this->config->item('app_name'); ?></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php $this->load->view('partials/header-css'); ?>

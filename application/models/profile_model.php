@@ -12,8 +12,6 @@ class Profile_model extends CI_Model
   public $address;
   public $jenis_kelamin;
   public $tanggal_lahir;
-  public $id_pendidikan;
-  public $pendapatan;
   public $url_img_customer;
 
   public function rules()
@@ -65,18 +63,6 @@ class Profile_model extends CI_Model
         'field' => 'tanggal_lahir',
         'label' => 'Tanggal Lahir',
         'rules' => 'required'
-      ],
-
-      [
-        'field' => 'pendidikan',
-        'label' => 'Pendidikan',
-        'rules' => 'trim|required'
-      ],
-
-      [
-        'field' => 'pendapatan',
-        'label' => 'Pendapatan',
-        'rules' => 'trim|required'
       ]
     ];
   }
@@ -89,18 +75,6 @@ class Profile_model extends CI_Model
     $this->db->join("kabupaten", "kabupaten.id_kabupaten = customer.kabupaten", "left");
     $this->db->join("kota", "kota.id_kota = customer.kota", "left");
     return $this->db->get($this->_table)->row();
-  }
-
-  // public function masterAgama()
-  // {
-  //   $this->db->order_by('nama_agama', 'asc');
-  //   return $this->db->get('agama')->result();
-  // }
-
-  public function masterPendidikan()
-  {
-    // $this->db->order_by('nama_pendidikan', 'asc');
-    return $this->db->get('pendidikan')->result();
   }
 
   public function masterProvinsi()
@@ -133,8 +107,6 @@ class Profile_model extends CI_Model
     $this->address = $post['address'];
     $this->jenis_kelamin = $post['jenis_kelamin'];
     $this->tanggal_lahir = $post['tanggal_lahir'];
-    $this->id_pendidikan = $post['pendidikan'];
-    $this->pendapatan = $post['pendapatan'];
     $this->url_img_customer = $this->_uploadImage();
 
     $this->db->update($this->_table, $this, array('id_customer' => $this->session->id_customer));
