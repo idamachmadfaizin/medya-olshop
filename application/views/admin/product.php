@@ -111,7 +111,6 @@
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
                                             <th>Kategori</th>
-                                            <!-- <th>Url Produck</th> -->
                                             <th>Deskripsi</th>
                                             <th class="avatar">Images</th>
                                             <th>Action</th>
@@ -123,14 +122,13 @@
                                             <tr>
                                                 <td class="serial"><?= $offset; ?></td>
                                                 <td><span><?= $produks->nama_produk; ?></span></td>
-                                                <td>Rp <span class="count"><?= number_format($produks->harga_produk, 0, ",", ".") ?></span></td>
+                                                <td>Rp<?= number_format($produks->harga_produk, 0, ",", ".") ?></td>
                                                 <td><span><?= $produks->nama_kategori; ?></span></td>
-                                                <!-- <td><span>cumi_kupas</span></td> -->
                                                 <td><span><?= $produks->deskripsi_produk ?></span></td>
                                                 <td class="avatar">
                                                     <div class="round-img">
                                                         <a href="#">
-                                                            <img class="rounded-circle" src="<?= base_url('upload/produk/' . $produks->url_image) ?>" alt="">
+                                                            <img class="rounded-circle rounded-cover" src="<?= base_url('upload/produk/' . $produks->url_image) ?>" alt="">
                                                         </a>
                                                     </div>
                                                 </td>

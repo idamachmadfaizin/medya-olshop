@@ -69,8 +69,8 @@
                         <td><span><?= $report->nama_customer ?></span></td>
                         <td><span><?= $report->nama_produk ?></span></td>
                         <td><span><?= $report->jumlah ?></span></td>
-                        <td class="count"><span><?= number_format($report->harga_satuan, 0, ",", ".") ?></span></td>
-                        <td class="count"><span><?= number_format($report->total_harga, 0, ",", ".") ?></span></td>
+                        <td><span><?= number_format($report->harga_satuan, 0, ",", ".") ?></span></td>
+                        <td><span><?= number_format($report->total_harga, 0, ",", ".") ?></span></td>
                       </tr>
                       <?php $number++; ?>
                     <?php endforeach; ?>

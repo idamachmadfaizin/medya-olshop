@@ -42,7 +42,7 @@
 
         <div class="row justify-content-end mt-30">
           <div class="col-9">
-            <img src="<?= base_url() . "upload/profile/" . $profile->url_img_customer; ?>" class="rounded-circle float-left size-50" alt="IMG-Profile">
+            <img src="<?= base_url() . "upload/profile/" . $profile->url_img_customer; ?>" class="rounded-circle rounded-cover float-left size-50" alt="IMG-Profile">
 
             <div class="form-group float-left ml-4 input-image-profile">
               <!-- <input type="file" name="image-profile" id="image-profile"><br> -->

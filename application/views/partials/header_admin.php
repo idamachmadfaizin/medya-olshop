@@ -75,6 +75,12 @@
 		#cellPaiChart {
 			height: 160px;
 		}
+
+		.rounded-cover {
+			width: 45px;
+			height: 45px;
+			object-fit: cover;
+		}
 	</style>
 </head>
 

@@ -81,7 +81,7 @@
 												<td class="serial"><?= $num ?></td>
 												<td class="avatar">
 													<div class="round-img">
-														<img class="rounded-circle"
+														<img class="rounded-circle rounded-cover"
 															src="<?= base_url("upload/kategori/".$kategori->url_image_kategori) ?>" alt="">
 													</div>
 												</td>

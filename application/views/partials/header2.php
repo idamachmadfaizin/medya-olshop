@@ -21,6 +21,13 @@ $num_notif = $CI->Cart_model->count();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php $this->load->view('partials/header-css'); ?>
+	<style>
+		.rounded-cover {
+			width: 45px;
+			height: 45px;
+			object-fit: cover;
+		}
+	</style>
 </head>
 
 <body class="animsition">

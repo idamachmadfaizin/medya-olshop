@@ -14,7 +14,7 @@
 							</div>
 							<div class="stat-content">
 								<div class="text-left dib">
-									<div class="stat-text"><span class="count"><?= $widget['order_today'] ?></span></div>
+									<div class="stat-text"><?= $widget['order_today'] ?></div>
 									<div class="stat-heading">Orders Today</div>
 								</div>
 							</div>
@@ -32,7 +32,7 @@
 							</div>
 							<div class="stat-content">
 								<div class="text-left dib">
-									<div class="stat-text"><span class="count"><?= $widget['dibayar'] ?></span></div>
+									<div class="stat-text"><?= $widget['dibayar'] ?></div>
 									<div class="stat-heading">Dibayar</div>
 								</div>
 							</div>
@@ -50,7 +50,7 @@
 							</div>
 							<div class="stat-content">
 								<div class="text-left dib">
-									<div class="stat-text"><span class="count"><?= $widget['proses'] ?></span></div>
+									<div class="stat-text"><?= $widget['proses'] ?></div>
 									<div class="stat-heading">Proses</div>
 								</div>
 							</div>
@@ -68,7 +68,7 @@
 							</div>
 							<div class="stat-content">
 								<div class="text-left dib">
-									<div class="stat-text"><span class="count"><?= $widget['customer'] ?></span></div>
+									<div class="stat-text"><?= $widget['customer'] ?></div>
 									<div class="stat-heading">Customer</div>
 								</div>
 							</div>
@@ -140,8 +140,8 @@
 																						<tr>
 																							<td class="serial"><?= $numDO ?></td>
 																							<td><span><?= $detail_order->nama_produk ?></span></td>
-																							<td><span class="count"><?= $detail_order->jumlah ?></span></td>
-																							<td><span class="count"><?= $detail_order->harga_satuan ?></span></td>
+																							<td><?= $detail_order->jumlah ?></td>
+																							<td><?= $detail_order->harga_satuan ?></td>
 																						</tr>
 																						<?php $numDO++ ?>
 																					<?php endif ?>
@@ -219,7 +219,7 @@
 													<!-- TF -->
 													<div class="round-img">
 														<button class="btn p-0" data-toggle="modal" data-target="#buktitf<?= $order->id_order ?>">
-															<img class="rounded-circle" style="object-fit:cover; height:45px; width:45px" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
+															<img class="rounded-circle rounded-cover" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
 														</button>
 													</div>
 													<!-- Modal TF-->
