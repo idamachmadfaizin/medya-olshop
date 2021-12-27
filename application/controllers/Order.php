@@ -47,10 +47,4 @@ class Order extends CI_Controller
 
     $this->load->view('order', $data);
   }
-
-  public function show($id)
-  {
-    $order = $this->Order_model->find($id);
-    $data['detail_order'] = '';
-  }
 }

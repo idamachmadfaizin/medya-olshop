@@ -66,4 +66,21 @@ class Order extends CI_Controller
 
 		redirect('admin/order/');
 	}
+
+	public function updateResi()
+	{
+		$orderModel = $this->Order_model;
+		$post = $this->input->post();
+		$id = $post['id_order'];
+		$resi = $post['resi'];
+		if (!$id) {
+			$this->session->set_flashdata('failed', 'Id order not found');
+			return redirect('admin/order');
+		}
+		if($resi) {
+			$orderModel->updateResi($id, $resi);
+		}
+
+		redirect('admin/order');
+	}
 }

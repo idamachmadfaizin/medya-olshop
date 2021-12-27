@@ -15,6 +15,7 @@
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">#</th>
+							<th scope="col">Resi</th>
 							<th scope="col">Date</th>
 							<th scope="col">Berita Acara</th>
 							<th scope="col">Total</th>
@@ -26,6 +27,7 @@
 							<?php $offset++ ?>
 							<tr>
 								<th scope="row"><a href="<?= site_url('order/show/' . $order->id_order) ?>"><?= $offset ?></a></th>
+								<td><?= $order->resi ?></td>
 								<td><?= $order->tgl_order ?></td>
 								<td><?= $order->id_order ?></td>
 								<td>Rp <?= number_format($order->total_harga, 0, ",", ".") ?></td>

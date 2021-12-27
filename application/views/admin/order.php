@@ -17,7 +17,7 @@
 									<thead>
 										<tr>
 											<th class="serial">#</th>
-											<!-- <th>No Order</th> -->
+											<th>Resi</th>
 											<th>Nama Customer</th>
 											<th>Tanggal Order</th>
 											<th>Total Harga</th>
@@ -31,7 +31,6 @@
 										?>
 										<?php foreach ($orders as $order) : ?>
 											<tr>
-												<!-- <td class="serial"><?= $order->id_order ?></td> -->
 												<td>
 													<!-- Button trigger modal -->
 													<button type="button" class="btn btn-sm p-0" data-toggle="modal" data-target="#detailorder<?= $order->id_customer ?>" style="font-weight:600">
@@ -81,6 +80,48 @@
 																<div class="modal-footer">
 																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 																</div>
+															</div>
+														</div>
+													</div>
+													<!-- end Modal -->
+												</td>
+												<td>
+													<!-- Button trigger modal -->
+													<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#detailcustomer<?= $order->id_customer ?>" style="font-weight:600">
+														<?= $order->resi ? $order->resi : 'Update resi' ?>
+													</button>
+
+													<!-- Modal detail customer-->
+													<div class="modal fade" id="detailcustomer<?= $order->id_customer ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<?= form_open(site_url('admin/order/updateResi')) ?>
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLongTitle">Update resi</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																			<div class="row">
+																				<div class="col col-md-6">
+																					<input type="hidden" name="id_order" id="id_order" value="<?php if (!empty($order->id_order)) {
+																																					echo $order->id_order;
+																																				} ?>" class="form-control">
+																					<div class="form-group">
+																						<label for="resi" class="form-control-label">Resi</label>
+																						<input type="text" name="resi" id="resi" value="<?php if (!empty($order->resi)) {
+																																							echo $order->resi;
+																																						} ?>" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="submit" class="btn btn-primary">Save</button>
+																		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	</div>
+																<?= form_close(); ?>
 															</div>
 														</div>
 													</div>
@@ -147,7 +188,9 @@
 													<!-- TF -->
 													<div class="round-img">
 														<button class="btn p-0" data-toggle="modal" data-target="#buktitf<?= $order->id_order ?>">
-															<img class="rounded-circle rounded-cover" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
+															<?php if($order->bukti_tf): ?>
+																<img class="rounded-circle rounded-cover" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
+															<?php endif ?>
 														</button>
 													</div>
 													<!-- Modal TF-->

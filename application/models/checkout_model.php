@@ -61,10 +61,4 @@ class checkout_model extends CI_Model
     $this->db->where('id_customer', $id);
     return $this->db->get("customer")->row_object();
   }
-
-  public function getAllProvinsi()
-  {
-    $this->db->order_by('id_pulau', 'ASC');
-    return $this->db->get("provinsi")->result();
-  }
 }
