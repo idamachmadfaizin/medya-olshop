@@ -536,3 +536,5 @@ $config['email'] = array(
 	'crlf' => "\r\n",
 	'newline' => "\r\n"
 );
+$config['email_from'] = 'melysashop@gmail.com';
+$config['email_name'] = 'Melysa shop';

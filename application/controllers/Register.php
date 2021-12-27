@@ -78,13 +78,13 @@ class Register extends CI_Controller
         // konfigurasi pengiriman
         $this->email->set_newline("\r\n");
         $this->email->set_mailtype('html');
-        $this->email->from("doublebunny76@gmail.com", "RUM Seafood");
+        $this->email->from($this->config->item('email_from'), $this->config->item('email_name'));
         $this->email->to($customer['email_customer']); //email customer
         $this->email->subject("Verification account");
         $this->email->message(
           "Dear User,<br>
           Please click on below URL or paste into your browser to verify your Email Address<br><br><a href='" . site_url("register/verifyEmail/$verificationText") . "'>Verify Email Address</a>"
-            . "<br><br>Thanks<br>RUM Seafood"
+            . "<br><br>Thanks<br>Melysa shop"
         );
 
         //send email and check if sended
@@ -122,7 +122,7 @@ class Register extends CI_Controller
     // konfigurasi pengiriman
     $this->email->set_newline("\r\n");
     $this->email->set_mailtype('html');
-    $this->email->from("doublebunny76@gmail.com", "RUM Seafood");
+    $this->email->from("melysashop@gmail.com", "RUM Seafood");
     $this->email->to($email); //email customer
     $this->email->subject("Verification account");
     $mailMessage = "<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head><body>";
