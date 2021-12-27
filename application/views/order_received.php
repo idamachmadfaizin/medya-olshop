@@ -16,7 +16,7 @@
             <p class="mb-2">Jumlah</p>
           </div>
           <div class="col-6 ml-auto">
-            <p class="text-black text-right px-3 mb-2" style="font-size:20px;">BCA 1500760910 a/n Rum Seafood</p>
+            <p class="text-black text-right px-3 mb-2" style="font-size:20px;">BCA 1500760911 a/n Melysa olshop</p>
             <p class="text-black text-right px-3 mb-2" style="font-size:20px;"><?= $id_order; ?></p>
             <p class="text-black text-right px-3 mb-2 text-rum" style="font-size:20px;">Rp <?= number_format($grand_total->grand_total, 0, ",", ".") ?></p>
           </div>

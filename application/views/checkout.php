@@ -104,7 +104,7 @@
             <p style="font-size:12px;">Accept transfer from all banks</p>
           </div>
           <div class="col-4">
-            <span>1500760910 <br> a/n Rum Seafood</span>
+            <span>1500760911 <br> a/n Melysa olshop</span>
           </div>
           <div class="col-3 text-right">
             <p style="font-size:14px;">Need to upload proof of transfer</p>
