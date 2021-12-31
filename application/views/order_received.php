@@ -3,7 +3,7 @@
 <div class="container" style="margin-top:200px;">
   <div class="row">
     <div class="col-9 centered">
-      <p class="text-center">Mohon menyelesaikan pembayaran sebelum 2:14 AM 20 Feb 2019</p>
+			<p class="text-center" id="infoPembayaran"></p>
 
       <div class="d-inline-block bg-white shadow1 rounded p-3 w-100">
         <div class="row no-gutters">
@@ -41,3 +41,14 @@
 </div>
 
 <?php $this->load->view('partials/footer'); ?>
+
+<script>
+const date = new Date(new Date().getTime() + (24*60*60*1000));
+const months = ['Januari', 'Februari', 'Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const time = date.toLocaleTimeString();
+const hourMinute = time.split(':');
+hourMinute.pop();
+const timeString = `${hourMinute.join(':')} ${time.split(' ')[1]}`;
+const dateTimeFormat = `${timeString} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+document.getElementById("infoPembayaran").innerHTML = 'Mohon menyelesaikan pembayaran sebelum ' + dateTimeFormat;
+</script>
