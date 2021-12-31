@@ -218,9 +218,11 @@
 												<td class="avatar">
 													<!-- TF -->
 													<div class="round-img">
-														<button class="btn p-0" data-toggle="modal" data-target="#buktitf<?= $order->id_order ?>">
-															<img class="rounded-circle rounded-cover" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
-														</button>
+														<?php if($order->bukti_tf): ?>
+															<button class="btn p-0" data-toggle="modal" data-target="#buktitf<?= $order->id_order ?>">
+																<img class="rounded-circle rounded-cover" src="<?= base_url() . 'upload/bukti_tf/' . $order->bukti_tf ?>" alt="">
+															</button>
+														<?php endif ?>
 													</div>
 													<!-- Modal TF-->
 													<div class="modal fade" id="buktitf<?= $order->id_order ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

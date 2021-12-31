@@ -87,12 +87,12 @@
 												</td>
 												<td>
 													<!-- Button trigger modal -->
-													<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#detailcustomer<?= $order->id_customer ?>" style="font-weight:600">
+													<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#detailcustomer<?= $order->id_order ?>" style="font-weight:600">
 														<?= $order->resi ? $order->resi : 'Update resi' ?>
 													</button>
 
 													<!-- Modal detail customer-->
-													<div class="modal fade" id="detailcustomer<?= $order->id_customer ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+													<div class="modal fade" id="detailcustomer<?= $order->id_order ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">
 																<?= form_open(site_url('admin/order/updateResi')) ?>
@@ -112,7 +112,7 @@
 																						<label for="resi" class="form-control-label">Resi</label>
 																						<input type="text" name="resi" id="resi" value="<?php if (!empty($order->resi)) {
 																																							echo $order->resi;
-																																						} ?>" class="form-control">
+																																						} ?>" class="form-control" maxlength="15">
 																					</div>
 																				</div>
 																			</div>
