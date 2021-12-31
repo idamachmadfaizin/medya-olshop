@@ -7,6 +7,11 @@ class Produk_model extends CI_Model
     return $this->db->get($table_name);
   }
 
+	public function getAllActive($table_name)
+  {
+		return $this->db->get_where('kategori', ['status_kategori' => 0]);
+  }
+
   public function getProdukImage($cari, $sorting, $kategori, $limit, $offset)
   {
     $this->db->select('p.id_produk, p.nama_produk, p.harga_produk, p.deskripsi_produk, p.url_produk,p.produk_created_at, p.produk_updated_at, i.url_image');

@@ -43,7 +43,7 @@ class Produk extends CI_Controller
 
 
     $limit = $config['per_page'];
-    $kategori = $this->Produk_model->getAllTable('kategori');
+    $kategori = $this->Produk_model->getAllActive('kategori');
     $kategori = $kategori->result_array();
     $data['kategori'] = $kategori;
     array_unshift($data['kategori'], array("id_kategori" => "0", "nama_kategori" => "All", "url_image_kategori" => "0"));
