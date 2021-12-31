@@ -109,7 +109,7 @@
 		<div class="container">
 			<div class="sec-title p-b-60">
 				<h3 class="m-text5 t-center">
-					Related Products
+					Rekomendasi produk
 				</h3>
 			</div>
 
