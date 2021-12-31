@@ -6,7 +6,7 @@ class cart_model extends CI_Model
   function get_cart(){
     $id_customer = $this->session->id_customer;
 
-    $this->db->select('c.id_cart, p.nama_produk, c.qty_cart, p.harga_produk, (p.harga_produk * c.qty_cart) AS total_harga_produk, p.id_produk, p.url_produk, i.url_image');
+    $this->db->select('c.id_cart, p.nama_produk, c.qty_cart, p.harga_produk, p.stock, (p.harga_produk * c.qty_cart) AS total_harga_produk, p.id_produk, p.url_produk, i.url_image');
 
     $this->db->from('cart c');
     $this->db->join('produk p', 'c.id_produk = p.id_produk');

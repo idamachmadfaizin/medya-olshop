@@ -24,8 +24,8 @@ class Detail_produk extends CI_Controller
         } else {
             $data['relatedP'] = $relatedP->result_array();
         }
-        // die();
         // print_r($data);
+        // die();
         $this->load->view('detail_product', $data);
     }
 

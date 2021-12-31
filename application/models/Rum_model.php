@@ -28,7 +28,7 @@ class rum_model extends CI_Model
 		$this->db->where('id_produk', $id_produk);
 		$this->db->update('produk');
 
-        $this->db->select('produk.id_produk, kategori.id_kategori, nama_kategori, nama_produk, harga_produk, deskripsi_produk, url_image');
+        $this->db->select('produk.id_produk, kategori.id_kategori, nama_kategori, nama_produk, harga_produk, stock, deskripsi_produk, url_image');
         $this->db->from('produk');
         $this->db->join('image', 'image.id_produk = produk.id_produk');
         $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori');

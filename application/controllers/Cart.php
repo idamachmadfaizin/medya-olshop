@@ -18,7 +18,7 @@ class Cart extends CI_Controller {
 
 		$grand_total = $this->cart_model->grand_total();
 		$data['grand_total'] = $grand_total->row_array();
-
+		
 		$this->load->view('cart', $data);
 	}
 

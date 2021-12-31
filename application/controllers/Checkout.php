@@ -31,11 +31,20 @@ class Checkout extends CI_Controller
 
 		$data['carts'] = $this->cart_model->get_cart();
 		$data['grand_total'] = $this->cart_model->grand_total()->row();
-
+		
 		if (empty($data['carts'])) {
 			redirect('/produk');
+		} else {
+			foreach ($data['carts'] as $cart) {
+				if ($cart->qty_cart > $cart->stock) {
+					$this->session->set_flashdata("maxQty", "Quantity $cart->nama_produk melebihi stok");
+					return redirect('/cart');
+				}
+			}
 		}
-
+		
+		// var_dump($data);
+		// die();
 		$this->load->view('checkout', $data);
 	}
 

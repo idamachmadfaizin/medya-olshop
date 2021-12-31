@@ -23,6 +23,14 @@
             </tr>
           </thead>
           <tbody>
+						<?php if ($this->session->flashdata('maxQty')) : ?>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<?= $this->session->flashdata('maxQty'); ?>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						<?php endif; ?>
             <?php foreach ($cart as $carts) : ?>
               <tr class="table-row">
                 <td class="column-1">
@@ -42,7 +50,7 @@
 
                     <input class="size8 m-text18 t-center num-product" type="number" name="<?php echo $carts->id_cart ?>" min="1" value="<?php echo $carts->qty_cart ?>">
 
-                    <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                    <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" data-max="<?= $carts->stock?>">
                       <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                     </button>
                   </div>
@@ -82,6 +90,8 @@
 
   </div>
 </section>
+
+<?php $this->session->unset_userdata('maxQty'); ?>
 
 <!-- <script type="text/javascript" src="<?php //echo base_url().'assets/js/jquery.js'
                                           ?>"></script> -->
