@@ -36,7 +36,7 @@
         <div class="form-group row p-l-37">
           <label for="noinvoice" class="col-sm-5 col-form-label">No. Invoice</label>
           <div class="col-sm-7">
-            <select name="noinvoice" id="noinvoice" class="custom-select custom-select-sm invoice-select" onchange="myFunction()">
+            <select name="noinvoice" id="noinvoice" class="custom-select custom-select-sm invoice-select" onchange="myFunction()" required>
               <option value="" <?php if (!$this->input->get('invoice')) {
                         echo "selected";
                       } ?>>Choose</option>
@@ -52,7 +52,7 @@
         <div class="form-group row p-l-37">
           <label for="rum_rek" class="col-sm-5 col-form-label">No. Rekening Tujuan</label>
           <div class="col-sm-7">
-            <input type="text" name="rum_rek" id="rum_rek" value="<?php ?>" placeholder="BCA 1500760910 a/n Rum Seafood" class="form-control form-control-sm" disabled>
+            <input type="text" name="rum_rek" id="rum_rek" value="<?php ?>" placeholder="BCA 1500760910 a/n Melysa olshop" class="form-control form-control-sm" disabled>
           </div>
         </div>
         <div class="form-group row p-l-37">
@@ -66,13 +66,13 @@
         <div class="form-group row p-l-37">
           <label for="tanggal" class="col-sm-5 col-form-label">Tanggal Transfer</label>
           <div class="col-sm-7">
-            <input type="date" name="tanggal" id="tanggal" value="<?php ?>" placeholder="No Invoice" class="form-control form-control-sm">
+            <input type="date" name="tanggal" id="tanggal" value="<?php ?>" placeholder="No Invoice" class="form-control form-control-sm" required>
           </div>
         </div>
         <div class="form-group row p-l-37">
           <label for="buktitf" class="col-sm-5 col-form-label">Bukti Transfer</label>
           <div class="col-sm-7 input-image-profile">
-            <?= form_upload('buktitf', set_value('buktitf')) ?>
+            <?= form_upload('buktitf', set_value('buktitf'), 'required') ?>
           </div>
         </div>
 
@@ -82,13 +82,13 @@
         <div class="form-group row p-l-37">
           <label for="bankname" class="col-sm-5 col-form-label">Bank Name</label>
           <div class="col-sm-7">
-            <input type="text" name="bankname" id="bankname" value="<?php ?>" placeholder="Your Bank Name" class="form-control form-control-sm">
+            <input type="text" name="bankname" id="bankname" value="<?php ?>" placeholder="Your Bank Name" class="form-control form-control-sm" required>
           </div>
         </div>
         <div class="form-group row p-l-37">
           <label for="bankowner" class="col-sm-5 col-form-label">Name of Bank Owner</label>
           <div class="col-sm-7">
-            <input type="text" name="bankowner" id="bankowner" value="<?php ?>" placeholder="" class="form-control form-control-sm">
+            <input type="text" name="bankowner" id="bankowner" value="<?php ?>" placeholder="" class="form-control form-control-sm" required>
           </div>
         </div>
         <div class="form-group row p-l-37">
