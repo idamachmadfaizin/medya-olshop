@@ -52,6 +52,7 @@ class Report extends CI_Controller
 
     // $json = $this->input->post('data');
     $data['datas'] = $json;
+		$data['periode'] = ($start ? $start : 'NA') . ' - ' . ($end ? $end : 'NA'); 
 
     $mpdf = new \Mpdf\Mpdf();
     $view = $this->load->view('admin/mpdfReport', $data, TRUE);

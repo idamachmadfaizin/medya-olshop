@@ -78,7 +78,7 @@
                 </table>
                 <hr>
                 <!-- <button class="btn btn-primary float-right mt-0 mr-3 mb-3">PDF</button> -->
-                <a href="<?= site_url('admin/report/pdf/' . $this->input->get('startDate') . '/' . $this->input->get('endDate')) ?>" onclick="downloadPdf()" class="btn btn-primary float-right mt-0 mr-3 mb-3">Export</a>
+                <a href="<?= site_url('admin/report/pdf/' . $this->input->get('startDate') . '/' . $this->input->get('endDate')) ?>" class="btn btn-primary float-right mt-0 mr-3 mb-3">Export</a>
                 <?php echo $this->pagination->create_links(); ?>
               </div> <!-- /.table-stats -->
             </div>
