@@ -66,6 +66,17 @@ class Dashboard_model extends CI_Model
     $id = $get['id'];
     $this->status = $get['status'];
 
+		$order = $this->db->get_where($this->_tOrders, ['id_order' => $id])->first_row();
+		if ($order && $order->status == 'Menunggu') {
+			$detailOrders = $this->db->get_where('detail_order', ['id_order' => $id])->result_array();
+			
+			foreach ($detailOrders as $detailOrder) {
+				$this->db->set('stock', "stock-{$detailOrder['jumlah']}", false);
+				$this->db->where('id_produk', $detailOrder['id_produk']);
+				$this->db->update('produk');
+			}
+		}
+
     return $this->db->update($this->_tOrders, $this, array("id_order" => $id));
   }
 }

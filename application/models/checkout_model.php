@@ -11,7 +11,7 @@ class checkout_model extends CI_Model
   public function make_order($grand_total)
   {
     $this->id_customer = $this->session->id_customer;
-    $this->tgl_order = date("o-m-d");
+    $this->tgl_order = date("Y-m-d");
     $this->total_harga = $grand_total;
 
     $this->db->insert($this->_table, $this);
