@@ -523,7 +523,7 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
-$config['app_name'] = 'Fashionku';
+$config['app_name'] = 'Melsya-oslhop';
 /*
 | Email configuration
 */
