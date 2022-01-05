@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://medya-olshop.test/';
+$config['base_url'] = 'http://localhost/olshop/';
 
 /*
 |--------------------------------------------------------------------------
@@ -531,8 +531,8 @@ $config['email'] = array(
 	'protocol' => 'smtp',
 	'smtp_host' => 'smtp.mailtrap.io',
 	'smtp_port' => 2525,
-	'smtp_user' => '16ef3c199dc945',
-	'smtp_pass' => '5569c6b859347a',
+	'smtp_user' => '9cf0fa4df5b79b',
+	'smtp_pass' => 'f8f2c1d5cdb87a',
 	'crlf' => "\r\n",
 	'newline' => "\r\n"
 );
